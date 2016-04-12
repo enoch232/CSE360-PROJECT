@@ -1,14 +1,14 @@
 import java.util.Random;
 
 public class Dice {
-	private Random rand;
+	private Random _rand;
 	
 	Dice(){
-		rand = new Random();
+		_rand = new Random();
 	}
 	
 	public int randInt(int min, int max){
-		int randomNum = rand.nextInt((max - min) + 1) + min;
-	    return randomNum;
+		int randomNum = _rand.nextInt((max - min) + 1) + min;
+		return randomNum;
 	}
 }
