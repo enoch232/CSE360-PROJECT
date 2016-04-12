@@ -36,8 +36,13 @@
 ehthumbs.db
 Thumbs.db
 
-# bin floder
-######################
+# bin floder #
+##############
 /bin
+
+# Eclipse configuration files #
+###############################
+.classpath
+.project
 
 
