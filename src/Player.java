@@ -19,7 +19,11 @@ public class Player {
 	}
 	
 	Player(String newName){
-		initialize(newName, 1000);
+		initialize(newName, 100);
+	}
+	
+	Player(){
+		initialize("", 100);
 	}
 	
 	public int checkBalance(){
@@ -50,6 +54,14 @@ public class Player {
 	public void createNewRound(){
 		points = 0;
 		isPass = false;
+	}
+	
+	public void setPlayerName(String newName){
+		name = newName;
+	}
+	
+	public void setBalance(int newBalance){
+		balance = newBalance;
 	}
 }
 
