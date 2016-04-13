@@ -1,13 +1,11 @@
 import java.util.Scanner;
 
 public class Admin {
-    private int numOfPlayers;
-    private Player[] playerArr;
-    
-    public int startNewGame(){
+    public int startNewGame(Player[] playerArr){
         Scanner in = new Scanner(System.in);
         String newName;
         int newBalance;
+        int numOfPlayers;
         
         System.out.printf("Please enter the number of players: ");
         numOfPlayers = in.nextInt();
