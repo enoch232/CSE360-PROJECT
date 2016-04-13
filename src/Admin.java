@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class Admin {
-    public int startNewGame(Player[] playerArr){
+    public Player[] startNewGame(){
         Scanner in = new Scanner(System.in);
+        Player[] playerArr;
         String newName;
         int newBalance;
         int numOfPlayers;
@@ -34,7 +35,7 @@ public class Admin {
             // System.out.printf("Success\n");
         }
         
-        in.close();
-        return numOfPlayers;
+        // in.close();
+        return playerArr;
     }
 }
