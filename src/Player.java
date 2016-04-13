@@ -58,6 +58,10 @@ public class Player {
 		System.out.printf("Points:\t\t%d\n", points);
 	}
 	
+	public void checkRanking(){
+		System.out.printf("Hi, %s\nYour current ranking is ...", userName);
+	}
+	
 	public int checkBalance(){
 		return balance;
 	}
