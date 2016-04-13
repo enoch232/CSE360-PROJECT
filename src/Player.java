@@ -48,7 +48,13 @@ public class Player {
 	}
 	
 	public int rollDice(){
+		if( isPass ){
+			System.out.printf("Sorry, you cannot roll the dice! Since you already pass this round in previous actions.\n");
+			return -1;
+		}
+		
 		int val = dice.randInt(1, 6);
+		points += val;
 		return val;
 	}
 	
