@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Admin {
+    protected int target;
+    
+    Admin(){
+        target = 13;        // Default target points
+    }
+    
     public Player[] startNewGame(){
         Scanner in = new Scanner(System.in);
         Player[] playerArr;
@@ -37,5 +43,12 @@ public class Admin {
         
         // in.close();
         return playerArr;
+    }
+    
+    public void setTargetPoints(){
+        Scanner in = new Scanner(System.in);
+        System.out.printf("Please enter a target <default is 13>: ");
+        target = in.nextInt();
+        in.nextLine();      // Dump '\n' character
     }
 }
