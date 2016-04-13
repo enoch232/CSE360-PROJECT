@@ -1,17 +1,19 @@
 
-public class Player {
+public class Player extends Admin{
 	private String userName;
 	private int balance;
 	private int points;
 	private boolean isPass;
-	private Dice dice;
+	private boolean isLose;
+	static private Dice dice = new Dice();
 	
 	private void initialize(String newName, int newBalance){
 		userName = newName;
 		balance = newBalance;
 		points = 0;
 		isPass = false;
-		dice = new Dice();
+		isLose = false;
+		// dice = new Dice();
 	}
 	
 	Player(String newName, int newBalance){
@@ -41,6 +43,7 @@ public class Player {
 	public void createNewRound(){
 		points = 0;
 		isPass = false;
+		isLose = false;
 	}
 	
 	public void pass(){
@@ -58,6 +61,12 @@ public class Player {
 		System.out.printf("You got %d !!!\n", val);
 		points += val;
 		System.out.printf("Your current points is %d\n", points);
+		
+		if(points > target){
+			isLose = true;
+			isPass = true;
+			System.out.printf("Oh NO!!! Busted!!!\n");
+		}
 		
 		return val;
 	}
@@ -94,7 +103,11 @@ public class Player {
 		return userName;
 	}
 	
-	public boolean checkPass(){
+	public boolean isPass(){
 		return isPass;
+	}
+	
+	public boolean isLose(){
+		return isLose;
 	}
 }
