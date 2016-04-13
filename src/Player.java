@@ -55,14 +55,19 @@ public class Player {
 		}
 		
 		int val = dice.randInt(1, 6);
+		System.out.printf("You got %d !!!\n", val);
 		points += val;
+		System.out.printf("Your current points is %d\n", points);
+		
 		return val;
 	}
 	
 	public void printInfo(){
-		System.out.printf("Username:\t\t%s\n", userName);
-		System.out.printf("Balance:\t\t%d\n", balance);
-		System.out.printf("Points:\t\t%d\n", points);
+		System.out.printf("===========================================\n");
+		System.out.printf("\t\tUsername: %s\n", userName);
+		System.out.printf("\t\tBalance:  %d\n", balance);
+		System.out.printf("\t\tPoints:   %d\n", points);
+		System.out.printf("===========================================\n");
 	}
 	
 	public void checkRanking(){
