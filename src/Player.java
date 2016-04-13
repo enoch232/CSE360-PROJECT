@@ -65,15 +65,23 @@ public class Player {
 	}
 	
 	public void checkRanking(){
-		System.out.printf("Hi, %s\nYour current ranking is ...", userName);
+		System.out.printf("Hi %s, Your current ranking is ...\n", userName);
 	}
 	
-	public int checkBalance(){
-		return balance;
+	public void checkBalance(){
+		System.out.printf("Hi %s, Your current balance is %d\n", userName, balance);
+	}
+	
+	public void checkCurPoints(){
+		System.out.printf("Hi %s, Your current points is %d\n", userName, points);
 	}
 	
 	public int getCurPoints(){
 		return points;
+	}
+	
+	public int getBalance(){
+		return balance;
 	}
 	
 	public String getPlayerName(){
