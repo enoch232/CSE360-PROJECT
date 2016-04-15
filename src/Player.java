@@ -3,6 +3,7 @@ public class Player extends Admin{
 	private String userName;
 	private int balance;
 	private int points;
+	private int deal;
 	private boolean isPass;
 	private boolean isLose;
 	static private Dice dice = new Dice();
@@ -11,6 +12,7 @@ public class Player extends Admin{
 		userName = newName;
 		balance = newBalance;
 		points = 0;
+		deal = 10;
 		isPass = false;
 		isLose = false;
 		// dice = new Dice();
