@@ -19,7 +19,7 @@ public class RankBoard {
         }
         else{
             System.out.printf("===========================================================\n");
-            System.out.printf("\n\t\t\t\tRanking Board\n");
+            System.out.printf("\n\t\tRanking Board\n\n");
             System.out.printf("===========================================================\n");
             
             for(int i = 0; i < rankBoard.size(); i++){
