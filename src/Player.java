@@ -116,4 +116,13 @@ public class Player extends Admin{
 	public boolean isLose(){
 		return isLose;
 	}
+	
+	public void grading(int heighestPoints){
+		if(heighestPoints != -1){
+			if(points == heighestPoints)
+				balance += deal;
+			else
+				balance -= deal;
+		}
+	}
 }
