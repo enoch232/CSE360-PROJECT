@@ -52,4 +52,8 @@ public class Admin {
         target = in.nextInt();
         in.nextLine();      // Dump '\n' character
     }
+    
+    public int getTarget(){
+        return target;
+    }
 }
