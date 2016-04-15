@@ -23,8 +23,15 @@ public class RankBoard {
             
             for(int i = 0; i < rankBoard.size(); i++){
                 System.out.printf("Round %d\n", i + 1);
-                System.out.printf("Winner:\t%s\n", rankBoard.get(i).getWinnerName());
-                System.out.printf("Winner:\t%d\n", rankBoard.get(i).getWinnerPoints());
+                
+                if(rankBoard.get(i).isTie()){
+                    System.out.printf("Tied!!! NO WINNER :(\n");
+                }
+                else{
+                    System.out.printf("Winner:\t%s\n", rankBoard.get(i).getWinnerName());
+                    System.out.printf("Winner:\t%d\n", rankBoard.get(i).getWinnerPoints());
+                }            
+                
                 System.out.printf("-----------------------------------------------------------\n");
             }
         }
