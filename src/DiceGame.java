@@ -130,20 +130,31 @@ public class DiceGame {
         in.nextLine();
     }
     
-    private Vector<RankRecord> generateRecord(){
-    	Vector<RankRecord> recordList = new Vector<RankRecord>();
-        RankRecord record = new RankRecord();
-    	boolean isTie = true;
+    private int getHeightestPoints(){
         int heighestPoints = -1;
-    	
-    	for(int i = 0; i < numOfPlayers; i++){
+        
+        for(int i = 0; i < numOfPlayers; i++){
             if(playerArr[i].isLose() == false && playerArr[i].getCurPoints() > heighestPoints){
                 heighestPoints = playerArr[i].getCurPoints();
-                isTie = false;
             }
         }
         
-        if( !isTie ){
+        return heighestPoints;
+    }
+    
+    private void gradeCurRound(){
+        int heighestPoints = getHeightestPoints();
+        
+        for(int i = 0; i < numOfPlayers; i++)
+            playerArr[i].grading(heighestPoints);
+    }
+    
+    private Vector<RankRecord> generateRecord(){
+    	Vector<RankRecord> recordList = new Vector<RankRecord>();
+        RankRecord record = new RankRecord();
+        int heighestPoints = getHeightestPoints();
+        
+        if(heighestPoints != -1){
             for(int i = 0; i < numOfPlayers; i++){
                 if(playerArr[i].getCurPoints() == heighestPoints){
                     record.setWinnerName(playerArr[i].getPlayerName());
@@ -167,10 +178,12 @@ public class DiceGame {
         numOfPlayers = playerArr.length;
         
         boolean isGameOver = false;
+        int heighestPoints;
         
         while( !isGameOver ){
         	newRound();
         	
+            gradeCurRound();
         	rankBoard.addNewRecord(generateRecord());
         	clearScreen();
             rankBoard.printRankBoard();
