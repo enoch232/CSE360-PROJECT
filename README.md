@@ -13,6 +13,13 @@
 - Zeyu Zhang (*TooSchoolForCool*)
 
 ***
+## Build Instructions
+- This program runs off of Java 1.7. 
+- Put all of the class files in the same folder and run the tester class to run the program.
+- You can also use javac Tester.java for compiling
+- For running java Tester
+
+***
 
 ## Dice Game
 
