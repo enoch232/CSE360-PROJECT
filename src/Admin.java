@@ -38,6 +38,7 @@ public class Admin {
           
             playerArr[i].setPlayerName(newName);
             playerArr[i].setBalance(newBalance);
+            playerArr[i].setTargetPoints(target);
             // System.out.printf("Success\n");
         }
         
@@ -45,7 +46,7 @@ public class Admin {
         return playerArr;
     }
     
-    public void setTargetPoints(){
+    public void initTargetPoints(){
         Scanner in = new Scanner(System.in);
         System.out.printf("Please enter a target <default is 13>: ");
         target = in.nextInt();

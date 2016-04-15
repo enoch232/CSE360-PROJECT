@@ -36,6 +36,10 @@ public class Player extends Admin{
 		balance = newBalance;
 	}
 	
+	public void setTargetPoints(int newTarget){
+		target = newTarget;
+	}
+	
 	public void addPoints(int val){
 		points += val;
 	}
