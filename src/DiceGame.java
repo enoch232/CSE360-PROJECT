@@ -20,7 +20,7 @@ public class DiceGame {
             System.out.printf("\n\n\n\n\n\n\n\n\n\n\n\n");
     }
     
-    private boolean checkGameStatus(){
+    private boolean checkRoundStatus(){
     	boolean isDone = true;
     	
     	for(int i = 0; i < numOfPlayers && isDone; i++){
@@ -30,6 +30,10 @@ public class DiceGame {
     	}
     	
     	return isDone;
+    }
+    
+    private boolean checkGameStatus(){
+        return false;
     }
     
     private void playerActions(Player player){
@@ -94,14 +98,14 @@ public class DiceGame {
         }
     }
     
-    public void runGame(){
-        boolean isGameOver = false;
+    private void newRound(){
+        boolean isOver = false;
         
-        admin.initTargetPoints();
-        playerArr = admin.startNewGame();
-        numOfPlayers = playerArr.length;
+        for(int i = 0; i < numOfPlayers; i++){
+            playerArr[i].reset();
+        }
         
-        while( !isGameOver ){
+        while( !isOver ){
         	// System.out.printf("I am Here 2\n");
             for(int i = 0; i < numOfPlayers; i++){
             	// if(playerArr == null){
@@ -113,6 +117,19 @@ public class DiceGame {
             	// System.out.printf("I am Here 3\n");
                 playerActions(playerArr[i]);
             }
+            isOver = checkRoundStatus();
+        }
+    }
+    
+    public void runGame(){
+        admin.initTargetPoints();
+        playerArr = admin.startNewGame();
+        numOfPlayers = playerArr.length;
+        
+        boolean isGameOver = false;
+        
+        while( !isGameOver ){
+        	newRound();
             isGameOver = checkGameStatus();
         }
         clearScreen();
