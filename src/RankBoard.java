@@ -31,7 +31,7 @@ public class RankBoard {
             	}
             	else{
             		System.out.printf("\t\tWinner:\t%s\n", record.get(i).getWinnerName());
-                    System.out.printf("\t\tWinner:\t%d\n", record.get(i).getWinnerPoints());
+                    System.out.printf("\t\tScore:\t%d\n", record.get(i).getWinnerScore());
             	}
             }
             
@@ -59,7 +59,7 @@ public class RankBoard {
                 	}
                 	else{
                 		System.out.printf("\t\tWinner:\t%s\n", record.get(j).getWinnerName());
-                        System.out.printf("\t\tWinner:\t%d\n", record.get(j).getWinnerPoints());
+                        System.out.printf("\t\tScore:\t%d\n", record.get(j).getWinnerScore());
                 	}
                 }
                 

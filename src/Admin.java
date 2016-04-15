@@ -4,7 +4,7 @@ public class Admin {
     protected int target;
     
     Admin(){
-        target = 13;        // Default target points
+        target = 13;        // Default target score
     }
     
     public Player[] startNewGame(){
@@ -38,7 +38,7 @@ public class Admin {
           
             playerArr[i].setPlayerName(newName);
             playerArr[i].setBalance(newBalance);
-            playerArr[i].setTargetPoints(target);
+            playerArr[i].setTargetScore(target);
             // System.out.printf("Success\n");
         }
         
@@ -46,7 +46,7 @@ public class Admin {
         return playerArr;
     }
     
-    public void initTargetPoints(){
+    public void initTargetScore(){
         Scanner in = new Scanner(System.in);
         System.out.printf("Please enter a target <default is 13>: ");
         target = in.nextInt();

@@ -1,7 +1,7 @@
 
 public class RankRecord {
     private String winnerName;
-    private int winnerPoints;
+    private int winnerScore;
     private boolean isTie;
     
     RankRecord(){
@@ -12,8 +12,8 @@ public class RankRecord {
         winnerName = name;
     }
     
-    public void setWinnerPoints(int points){
-        winnerPoints = points;
+    public void setWinnerScore(int score){
+        winnerScore = score;
     }
     
     public void setTie(){
@@ -24,8 +24,8 @@ public class RankRecord {
         return winnerName;
     }
     
-    public int getWinnerPoints(){
-        return winnerPoints;
+    public int getWinnerScore(){
+        return winnerScore;
     }
     
     public boolean isTie(){

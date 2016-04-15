@@ -52,7 +52,7 @@ public class DiceGame {
             System.out.printf("Hey, %s\n", player.getPlayerName());
             System.out.printf("Make your choice!!!\n");
             System.out.printf("0. Check Ranking Board\n");
-            System.out.printf("1. Check Current Points.\n");
+            System.out.printf("1. Check Current Score.\n");
             System.out.printf("2. Check Current Balance.\n");
             System.out.printf("3. PASS\n");
             if( !player.isPass() ){
@@ -72,7 +72,7 @@ public class DiceGame {
                 	rankBoard.printRankBoard();
                     break;
                 case CHECK_CUR_POINTS:
-                    player.checkCurPoints();
+                    player.checkCurScore();
                     break;
                 case CHECK_BALANCE:
                     player.checkBalance();
@@ -111,13 +111,6 @@ public class DiceGame {
         while( !isOver ){
         	// System.out.printf("I am Here 2\n");
             for(int i = 0; i < numOfPlayers; i++){
-            	// if(playerArr == null){
-            	// 	System.out.printf("playerArr is null\n");
-            	// }
-            	// if(playerArr[i] == null){
-            	// 	System.out.printf("playerArr[i] is null\n");
-            	// }
-            	// System.out.printf("I am Here 3\n");
                 playerActions(playerArr[i]);
             }
             isOver = checkRoundStatus();
@@ -130,35 +123,35 @@ public class DiceGame {
         in.nextLine();
     }
     
-    private int getHeightestPoints(){
-        int heighestPoints = -1;
+    private int getHeightestScore(){
+        int heighestScore = -1;
         
         for(int i = 0; i < numOfPlayers; i++){
-            if(playerArr[i].isLose() == false && playerArr[i].getCurPoints() > heighestPoints){
-                heighestPoints = playerArr[i].getCurPoints();
+            if(playerArr[i].isLose() == false && playerArr[i].getCurScore() > heighestScore){
+                heighestScore = playerArr[i].getCurScore();
             }
         }
         
-        return heighestPoints;
+        return heighestScore;
     }
     
     private void gradeCurRound(){
-        int heighestPoints = getHeightestPoints();
+        int heighestScore = getHeightestScore();
         
         for(int i = 0; i < numOfPlayers; i++)
-            playerArr[i].grading(heighestPoints);
+            playerArr[i].grading(heighestScore);
     }
     
     private Vector<RankRecord> generateRecord(){
     	Vector<RankRecord> recordList = new Vector<RankRecord>();
         RankRecord record = new RankRecord();
-        int heighestPoints = getHeightestPoints();
+        int heighestScore = getHeightestScore();
         
-        if(heighestPoints != -1){
+        if(heighestScore != -1){
             for(int i = 0; i < numOfPlayers; i++){
-                if(playerArr[i].getCurPoints() == heighestPoints){
+                if(playerArr[i].getCurScore() == heighestScore){
                     record.setWinnerName(playerArr[i].getPlayerName());
-                    record.setWinnerPoints(playerArr[i].getCurPoints());
+                    record.setWinnerScore(playerArr[i].getCurScore());
                     recordList.add(record);
                     record = new RankRecord();
                 }
@@ -173,12 +166,12 @@ public class DiceGame {
     }
     
     public void runGame(){
-        admin.initTargetPoints();
+        admin.initTargetScore();
         playerArr = admin.startNewGame();
         numOfPlayers = playerArr.length;
         
         boolean isGameOver = false;
-        int heighestPoints;
+        int heighestScore;
         
         while( !isGameOver ){
         	newRound();

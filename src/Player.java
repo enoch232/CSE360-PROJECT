@@ -2,7 +2,7 @@
 public class Player extends Admin{
 	private String userName;
 	private int balance;
-	private int points;
+	private int score; 		// change to curScore
 	private int deal;
 	private boolean isPass;
 	private boolean isLose;
@@ -11,7 +11,7 @@ public class Player extends Admin{
 	private void initialize(String newName, int newBalance){
 		userName = newName;
 		balance = newBalance;
-		points = 0;
+		score = 0;
 		deal = 10;
 		isPass = false;
 		isLose = false;
@@ -38,16 +38,16 @@ public class Player extends Admin{
 		balance = newBalance;
 	}
 	
-	public void setTargetPoints(int newTarget){
+	public void setTargetScore(int newTarget){
 		target = newTarget;
 	}
 	
-	public void addPoints(int val){
-		points += val;
+	public void addScore(int val){
+		score += val;
 	}
 	
 	public void reset(){
-		points = 0;
+		score = 0;
 		isPass = false;
 		isLose = false;
 	}
@@ -65,10 +65,10 @@ public class Player extends Admin{
 		
 		int val = dice.randInt(1, 6);
 		System.out.printf("You got %d !!!\n", val);
-		points += val;
-		System.out.printf("Your current points is %d\n", points);
+		score += val;
+		System.out.printf("Your current score is %d\n", score);
 		
-		if(points > target){
+		if(score > target){
 			isLose = true;
 			isPass = true;
 			System.out.printf("Oh NO!!! Busted!!!\n");
@@ -81,7 +81,7 @@ public class Player extends Admin{
 		System.out.printf("===========================================\n");
 		System.out.printf("\t\tUsername: %s\n", userName);
 		System.out.printf("\t\tBalance:  %d\n", balance);
-		System.out.printf("\t\tPoints:   %d\n", points);
+		System.out.printf("\t\tScore:   %d\n", score);
 		System.out.printf("===========================================\n");
 	}
 	
@@ -93,12 +93,12 @@ public class Player extends Admin{
 		System.out.printf("Hi %s, Your current balance is %d\n", userName, balance);
 	}
 	
-	public void checkCurPoints(){
-		System.out.printf("Hi %s, Your current points is %d\n", userName, points);
+	public void checkCurScore(){
+		System.out.printf("Hi %s, Your current score is %d\n", userName, score);
 	}
 	
-	public int getCurPoints(){
-		return points;
+	public int getCurScore(){
+		return score;
 	}
 	
 	public int getBalance(){
@@ -117,9 +117,9 @@ public class Player extends Admin{
 		return isLose;
 	}
 	
-	public void grading(int heighestPoints){
-		if(heighestPoints != -1){
-			if(points == heighestPoints)
+	public void grading(int heighestScore){
+		if(heighestScore != -1){
+			if(score == heighestScore)
 				balance += deal;
 			else
 				balance -= deal;
