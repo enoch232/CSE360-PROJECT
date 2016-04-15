@@ -61,7 +61,6 @@ public class DiceGame {
             }
             else
             	System.out.printf("Please enter your option <0 - 3>: ");
-            
             res = in.nextInt();
             
             in.nextLine();  // Dump the character '\n'

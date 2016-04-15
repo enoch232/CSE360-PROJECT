@@ -51,6 +51,7 @@ public class Admin {
         System.out.printf("Please enter a target <default is 13>: ");
         target = in.nextInt();
         in.nextLine();      // Dump '\n' character
+
     }
     
     public int getTarget(){
