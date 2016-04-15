@@ -186,7 +186,7 @@ public class DiceGame {
             gradeCurRound();
         	rankBoard.addNewRecord(generateRecord());
         	clearScreen();
-            rankBoard.printRankBoard();
+            rankBoard.printLatestRecord();
             enterContinue();
             
             isGameOver = checkGameStatus();

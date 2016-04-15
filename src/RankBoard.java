@@ -13,9 +13,35 @@ public class RankBoard {
         rankBoard.add(newRecord);
     }
     
+    public void printLatestRecord(){
+        if(rankBoard.size() == 0){
+            System.out.printf("\t\tNo Record!!\n");
+        }
+        else{
+            System.out.printf("===========================================================\n");
+            System.out.printf("\n\t\tRanking Board\n\n");
+            System.out.printf("===========================================================\n");
+            
+            Vector<RankRecord> record = rankBoard.get(rankBoard.size() - 1);
+            
+            System.out.printf("\t\tRound %d\n", rankBoard.size());
+            for(int i = 0; i < record.size(); i++){
+            	if( record.get(i).isTie() ){
+            		System.out.printf("\t\tTied!!! NO WINNER :(\n");
+            	}
+            	else{
+            		System.out.printf("\t\tWinner:\t%s\n", record.get(i).getWinnerName());
+                    System.out.printf("\t\tWinner:\t%d\n", record.get(i).getWinnerPoints());
+            	}
+            }
+            
+            System.out.printf("-----------------------------------------------------------\n");
+        }
+    }
+    
     public void printRankBoard(){
         if(rankBoard.size() == 0){
-            System.out.printf("No Record!!");
+            System.out.printf("\t\tNo Record!!\n");
         }
         else{
             System.out.printf("===========================================================\n");
@@ -23,17 +49,17 @@ public class RankBoard {
             System.out.printf("===========================================================\n");
             
             for(int i = 0; i < rankBoard.size(); i++){
-                System.out.printf("Round %d\n", i + 1);
+                System.out.printf("\t\tRound %d\n", i + 1);
                 
                 Vector<RankRecord> record = rankBoard.get(i);
                 
                 for(int j = 0; j < record.size(); j++){
                 	if( record.get(j).isTie() ){
-                		System.out.printf("Tied!!! NO WINNER :(\n");
+                		System.out.printf("\t\tTied!!! NO WINNER :(\n");
                 	}
                 	else{
-                		System.out.printf("Winner:\t%s\n", record.get(j).getWinnerName());
-                        System.out.printf("Winner:\t%d\n", record.get(j).getWinnerPoints());
+                		System.out.printf("\t\tWinner:\t%s\n", record.get(j).getWinnerName());
+                        System.out.printf("\t\tWinner:\t%d\n", record.get(j).getWinnerPoints());
                 	}
                 }
                 
