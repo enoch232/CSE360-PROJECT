@@ -97,9 +97,9 @@ public class DiceGame {
     public void runGame(){
         boolean isGameOver = false;
         
+        admin.setTargetPoints();
         playerArr = admin.startNewGame();
         numOfPlayers = playerArr.length;
-        admin.setTargetPoints();
         
         while( !isGameOver ){
         	// System.out.printf("I am Here 2\n");
