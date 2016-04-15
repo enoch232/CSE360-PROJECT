@@ -44,7 +44,7 @@ public class Player extends Admin{
 		points += val;
 	}
 	
-	public void createNewRound(){
+	public void reset(){
 		points = 0;
 		isPass = false;
 		isLose = false;
