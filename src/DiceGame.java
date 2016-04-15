@@ -10,8 +10,10 @@ public class DiceGame {
     private final int CHECK_RANKING = 0;
     private final int CHECK_CUR_POINTS = 1;
     private final int CHECK_BALANCE = 2;
-    private final int PASS = 3;
-    private final int ROLL_DICE = 4;
+    private final int CHANGE_BET = 3;
+    private final int PASS = 4;
+    private final int ROLL_DICE = 5;
+    private final int QUIT = 6;
     
     DiceGame(){
         admin = new Admin();
@@ -39,6 +41,18 @@ public class DiceGame {
         return false;
     }
     
+    private void deletePlayer(Player player){
+        Player[] tmpArr = new Player[numOfPlayers - 1];
+        int cnt = 0;
+        for(int i = 0; i < numOfPlayers; i++){
+            if(playerArr[i] != player){
+                tmpArr[cnt++] = playerArr[i];
+            }
+        }
+        numOfPlayers--;
+        playerArr = tmpArr;
+    }
+    
     private void playerActions(Player player){
         boolean isDone = false;
         int res = -1;
@@ -54,13 +68,17 @@ public class DiceGame {
             System.out.printf("0. Check Ranking Board\n");
             System.out.printf("1. Check Current Score.\n");
             System.out.printf("2. Check Current Balance.\n");
-            System.out.printf("3. PASS\n");
+            System.out.printf("3. Change Bet.\n");
+            System.out.printf("4. PASS\n");
             if( !player.isPass() ){
-                System.out.printf("4. Roll Dice.\n");
-                System.out.printf("Please enter your option <0 - 4>: ");
+                System.out.printf("5. Roll Dice.\n");
+                System.out.printf("6. Quit.\n");
+                System.out.printf("Please enter your option <0 - 6>: ");
             }
-            else
-            	System.out.printf("Please enter your option <0 - 3>: ");
+            else{
+                System.out.printf("5. Quit.\n");
+                System.out.printf("Please enter your option <0 - 3>: ");
+            }
             
             res = in.nextInt();
             
@@ -77,6 +95,9 @@ public class DiceGame {
                 case CHECK_BALANCE:
                     player.checkBalance();
                     break;
+                case CHANGE_BET:
+                    player.changeBet();
+                    break;
                 case PASS:
                     player.pass();
                     isDone = true;
@@ -92,6 +113,10 @@ public class DiceGame {
                 		player.rollDice();
                         isDone = true;
                 	}
+                    break;
+                case QUIT:
+                    deletePlayer(player);
+                    isDone = true;
                     break;
                 default:
                     System.out.printf("Sorry, we do not have this option, please try again.\n");
