@@ -1,9 +1,11 @@
 import java.util.Scanner;
+import java.util.Vector;
 
 public class DiceGame {
     private int numOfPlayers;
     private Player[] playerArr;
     private Admin admin;
+    private RankBoard rankBoard;
     
     private final int CHECK_RANKING = 0;
     private final int CHECK_CUR_POINTS = 1;
@@ -13,6 +15,7 @@ public class DiceGame {
     
     DiceGame(){
         admin = new Admin();
+        rankBoard = new RankBoard();
     }
     
     private void clearScreen(){
@@ -65,7 +68,8 @@ public class DiceGame {
             
             switch(res){
                 case CHECK_RANKING:
-                    player.checkRanking();
+                    // player.checkRanking();
+                	rankBoard.printRankBoard();
                     break;
                 case CHECK_CUR_POINTS:
                     player.checkCurPoints();
@@ -93,8 +97,7 @@ public class DiceGame {
                     System.out.printf("Sorry, we do not have this option, please try again.\n");
                     break;
             }
-            System.out.printf("<Press Enter Continue>\n");
-            in.nextLine();
+            enterContinue();
         }
     }
     
@@ -121,6 +124,43 @@ public class DiceGame {
         }
     }
     
+    private void enterContinue(){
+    	Scanner in = new Scanner(System.in);
+    	System.out.printf("<Press Enter Continue>\n");
+        in.nextLine();
+    }
+    
+    private Vector<RankRecord> generateRecord(){
+    	Vector<RankRecord> recordList = new Vector<RankRecord>();
+        RankRecord record = new RankRecord();
+    	boolean isTie = true;
+        int heighestPoints = -1;
+    	
+    	for(int i = 0; i < numOfPlayers; i++){
+            if(playerArr[i].isLose() == false && playerArr[i].getCurPoints() > heighestPoints){
+                heighestPoints = playerArr[i].getCurPoints();
+                isTie = false;
+            }
+        }
+        
+        if( !isTie ){
+            for(int i = 0; i < numOfPlayers; i++){
+                if(playerArr[i].getCurPoints() == heighestPoints){
+                    record.setWinnerName(playerArr[i].getPlayerName());
+                    record.setWinnerPoints(playerArr[i].getCurPoints());
+                    recordList.add(record);
+                    record = new RankRecord();
+                }
+            }
+        }
+        else{
+            record.setTie();
+            recordList.add(record);
+        }
+        
+    	return recordList;
+    }
+    
     public void runGame(){
         admin.initTargetPoints();
         playerArr = admin.startNewGame();
@@ -130,6 +170,12 @@ public class DiceGame {
         
         while( !isGameOver ){
         	newRound();
+        	
+        	rankBoard.addNewRecord(generateRecord());
+        	clearScreen();
+            rankBoard.printRankBoard();
+            enterContinue();
+            
             isGameOver = checkGameStatus();
         }
         clearScreen();
