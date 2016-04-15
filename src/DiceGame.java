@@ -38,18 +38,21 @@ public class DiceGame {
     }
     
     private boolean checkGameStatus(){
-        return false;
+        if(numOfPlayers > 1)
+        	return false;
+        else
+        	return true;
     }
     
-    private void deletePlayer(Player player){
-        Player[] tmpArr = new Player[numOfPlayers - 1];
+    private void deletePlayer(){
+        Player[] tmpArr = new Player[numOfPlayers];
         int cnt = 0;
         for(int i = 0; i < numOfPlayers; i++){
-            if(playerArr[i] != player){
+            if(playerArr[i].getBalance() != 0){
                 tmpArr[cnt++] = playerArr[i];
             }
         }
-        numOfPlayers--;
+        numOfPlayers = cnt;
         playerArr = tmpArr;
     }
     
@@ -76,7 +79,7 @@ public class DiceGame {
                 System.out.printf("Please enter your option <0 - 6>: ");
             }
             else{
-                System.out.printf("5. Quit.\n");
+                System.out.printf("6. Quit.\n");
                 System.out.printf("Please enter your option <0 - 3>: ");
             }
             
@@ -115,7 +118,7 @@ public class DiceGame {
                 	}
                     break;
                 case QUIT:
-                    deletePlayer(player);
+                    player.delete();
                     isDone = true;
                     break;
                 default:
@@ -138,6 +141,7 @@ public class DiceGame {
             for(int i = 0; i < numOfPlayers; i++){
                 playerActions(playerArr[i]);
             }
+            deletePlayer();
             isOver = checkRoundStatus();
         }
     }
@@ -196,7 +200,6 @@ public class DiceGame {
         numOfPlayers = playerArr.length;
         
         boolean isGameOver = false;
-        int heighestScore;
         
         while( !isGameOver ){
         	newRound();

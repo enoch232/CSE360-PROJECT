@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Player extends Admin{
 	private String userName;
@@ -123,6 +124,41 @@ public class Player extends Admin{
 				balance += deal;
 			else
 				balance -= deal;
+		}
+	}
+	
+	public void delete(){
+		balance = 0;
+	}
+	
+	public void changeBet(){
+		Scanner scan = new Scanner(System.in);
+		int addBet = 0;
+		System.out.printf("How do you want to change the total bet?\n");
+		System.out.printf("================================================\n");
+		System.out.printf("1. Add 5\n");
+		System.out.printf("2. Add 10\n");
+		System.out.printf("3. Add 15\n");
+		System.out.printf("4. Double\n");
+		int choice = scan.nextInt();
+		switch(choice){
+			case 1:
+				addBet = 5;
+				break;
+			case 2:
+				addBet = 10;
+				break;
+			case 3:
+				addBet = 15;
+				break;
+			case 4:
+				addBet = deal;
+				break;
+		}
+		if (balance < deal+ addBet){
+			System.out.printf("You can't increase the bet to more than your balance!");
+		}else{
+			deal += addBet; //if the player's balance is greater, then continue the proces.
 		}
 	}
 }
