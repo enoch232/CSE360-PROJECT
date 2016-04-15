@@ -1,14 +1,15 @@
 import java.util.Vector;
+import java.util.ArrayList;
 
 
 public class RankBoard {
-    private Vector<RankRecord> rankBoard;
+    private ArrayList<Vector<RankRecord>> rankBoard;
     
     RankBoard(){
-        rankBoard = new Vector<RankRecord>(10, 5);
+        rankBoard = new ArrayList<Vector<RankRecord>>();
     }
     
-    public void addNewRecord(RankRecord newRecord){
+    public void addNewRecord(Vector<RankRecord> newRecord){
         rankBoard.add(newRecord);
     }
     
@@ -24,13 +25,17 @@ public class RankBoard {
             for(int i = 0; i < rankBoard.size(); i++){
                 System.out.printf("Round %d\n", i + 1);
                 
-                if(rankBoard.get(i).isTie()){
-                    System.out.printf("Tied!!! NO WINNER :(\n");
+                Vector<RankRecord> record = rankBoard.get(i);
+                
+                for(int j = 0; j < record.size(); j++){
+                	if( record.get(j).isTie() ){
+                		System.out.printf("Tied!!! NO WINNER :(\n");
+                	}
+                	else{
+                		System.out.printf("Winner:\t%s\n", record.get(j).getWinnerName());
+                        System.out.printf("Winner:\t%d\n", record.get(j).getWinnerPoints());
+                	}
                 }
-                else{
-                    System.out.printf("Winner:\t%s\n", rankBoard.get(i).getWinnerName());
-                    System.out.printf("Winner:\t%d\n", rankBoard.get(i).getWinnerPoints());
-                }            
                 
                 System.out.printf("-----------------------------------------------------------\n");
             }
