@@ -159,5 +159,4 @@ public class JUnitPlayerTester {
 		assertEquals(p3.getCurScore(), 5);
 		assertEquals(p3.getBalance(), 90);
 	}
-
 }
