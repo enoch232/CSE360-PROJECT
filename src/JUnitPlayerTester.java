@@ -98,7 +98,6 @@ public class JUnitPlayerTester {
 		System.out.flush();
 		System.setOut(previous);
 		output = result.toString();
-		//System.out.println(output);
 		assertEquals(output, temp);
 	}
 
