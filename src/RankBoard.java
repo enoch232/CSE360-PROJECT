@@ -67,4 +67,8 @@ public class RankBoard {
             }
         }
     }
+    
+    public int size(){
+        return rankBoard.size();
+    }
 }

@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 
-public class JUnitAdminTest {
+public class JUnitAdminTester{
 
 	@Test
 	/*Check if the target is set to default value of 13.
@@ -11,8 +11,5 @@ public class JUnitAdminTest {
 	public void testAdminTarget() {
 		Admin administrator = new Admin();
 		assertEquals(13, administrator.getTarget());
-
 	}
-	
-
 }

@@ -9,10 +9,36 @@ public class JUnitDiceTester {
 	 */
 	public void testDice() {
 		Dice dice = new Dice();
+		// since the return value is random, we need more test cases
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
+		assertTrue(dice.randInt(1, 6) >= 1);
+		assertTrue(dice.randInt(1, 6) <= 6);
 		assertTrue(dice.randInt(1, 6) >= 1);
 		assertTrue(dice.randInt(1, 6) <= 6);
 	}
-
-	
-
 }
