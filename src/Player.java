@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Player extends Admin{
 	private String userName;
@@ -125,8 +126,13 @@ public class Player extends Admin{
 				balance -= deal;
 		}
 	}
+	
+	public void delete(){
+		balance = 0;
+	}
+	
 	public void changeBet(){
-		Scanner scan = new Scan(System.in);
+		Scanner scan = new Scanner(System.in);
 		int addBet = 0;
 		System.out.printf("How do you want to change the total bet?\n");
 		System.out.printf("================================================\n");
