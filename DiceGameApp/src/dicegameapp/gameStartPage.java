@@ -32,6 +32,7 @@ public class gameStartPage extends javax.swing.JFrame {
         startPageDicePic = new javax.swing.JLabel();
         diceGameLabel = new javax.swing.JLabel();
         startGameButton = new javax.swing.JButton();
+        CreditsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,11 +44,20 @@ public class gameStartPage extends javax.swing.JFrame {
         diceGameLabel.setForeground(new java.awt.Color(255, 255, 255));
         diceGameLabel.setText("    DiceGame");
 
+        startGameButton.setBackground(new java.awt.Color(51, 102, 0));
         startGameButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
         startGameButton.setText("Start New Game");
         startGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startGameButtonActionPerformed(evt);
+            }
+        });
+
+        CreditsButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        CreditsButton.setText("Credits");
+        CreditsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreditsButtonActionPerformed(evt);
             }
         });
 
@@ -60,19 +70,22 @@ public class gameStartPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(startPageDicePic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(diceGameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(startGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(startGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CreditsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(17, 17, 17)
                 .addComponent(diceGameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(startPageDicePic)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(startGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CreditsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -93,7 +106,13 @@ public class gameStartPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_startGameButtonActionPerformed
 
+    private void CreditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreditsButtonActionPerformed
+        // TODO add your handling code here:
+        new CreditsPage().setVisible(true);
+    }//GEN-LAST:event_CreditsButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CreditsButton;
     private javax.swing.JLabel diceGameLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton startGameButton;
