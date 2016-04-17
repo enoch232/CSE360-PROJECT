@@ -32,7 +32,7 @@ public class gameStartPage extends javax.swing.JFrame {
         startPageDicePic = new javax.swing.JLabel();
         diceGameLabel = new javax.swing.JLabel();
         startGameButton = new javax.swing.JButton();
-        CreditsButton = new javax.swing.JButton();
+        creditsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,24 +40,45 @@ public class gameStartPage extends javax.swing.JFrame {
 
         startPageDicePic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picSrc/startPageDice.jpg"))); // NOI18N
 
-        diceGameLabel.setFont(new java.awt.Font("Myanmar MN", 0, 30)); // NOI18N
+        diceGameLabel.setFont(new java.awt.Font("Luminari", 3, 30)); // NOI18N
         diceGameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        diceGameLabel.setText("    DiceGame");
+        diceGameLabel.setText("      DiceGame");
 
         startGameButton.setBackground(new java.awt.Color(51, 102, 0));
-        startGameButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+        startGameButton.setFont(new java.awt.Font("Luminari", 0, 18)); // NOI18N
+        startGameButton.setForeground(new java.awt.Color(255, 255, 255));
         startGameButton.setText("Start New Game");
+        startGameButton.setBorder(null);
+        startGameButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                startGameButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                startGameButtonMouseEntered(evt);
+            }
+        });
         startGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startGameButtonActionPerformed(evt);
             }
         });
 
-        CreditsButton.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
-        CreditsButton.setText("Credits");
-        CreditsButton.addActionListener(new java.awt.event.ActionListener() {
+        creditsButton.setBackground(new java.awt.Color(51, 102, 0));
+        creditsButton.setFont(new java.awt.Font("Luminari", 0, 18)); // NOI18N
+        creditsButton.setForeground(new java.awt.Color(255, 255, 255));
+        creditsButton.setText("Credits");
+        creditsButton.setBorder(null);
+        creditsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                creditsButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                creditsButtonMouseEntered(evt);
+            }
+        });
+        creditsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CreditsButtonActionPerformed(evt);
+                creditsButtonActionPerformed(evt);
             }
         });
 
@@ -71,7 +92,7 @@ public class gameStartPage extends javax.swing.JFrame {
                     .addComponent(startPageDicePic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(diceGameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(startGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CreditsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(creditsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -81,11 +102,11 @@ public class gameStartPage extends javax.swing.JFrame {
                 .addComponent(diceGameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(startPageDicePic)
-                .addGap(18, 18, 18)
-                .addComponent(startGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CreditsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addGap(36, 36, 36)
+                .addComponent(startGameButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(creditsButton)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,13 +127,33 @@ public class gameStartPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_startGameButtonActionPerformed
 
-    private void CreditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreditsButtonActionPerformed
+    private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
         // TODO add your handling code here:
         new CreditsPage().setVisible(true);
-    }//GEN-LAST:event_CreditsButtonActionPerformed
+    }//GEN-LAST:event_creditsButtonActionPerformed
+
+    private void startGameButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startGameButtonMouseEntered
+        // TODO add your handling code here:
+        startGameButton.setForeground(new java.awt.Color(255, 255, 153));
+    }//GEN-LAST:event_startGameButtonMouseEntered
+
+    private void startGameButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startGameButtonMouseExited
+        // TODO add your handling code here:
+        startGameButton.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_startGameButtonMouseExited
+
+    private void creditsButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsButtonMouseEntered
+        // TODO add your handling code here:
+        creditsButton.setForeground(new java.awt.Color(255, 255, 153));
+    }//GEN-LAST:event_creditsButtonMouseEntered
+
+    private void creditsButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsButtonMouseExited
+        // TODO add your handling code here:
+        creditsButton.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_creditsButtonMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CreditsButton;
+    private javax.swing.JButton creditsButton;
     private javax.swing.JLabel diceGameLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton startGameButton;
