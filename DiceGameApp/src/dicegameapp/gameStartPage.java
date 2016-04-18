@@ -102,9 +102,9 @@ public class gameStartPage extends javax.swing.JFrame {
                 .addComponent(diceGameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(startPageDicePic)
-                .addGap(36, 36, 36)
+                .addGap(24, 24, 24)
                 .addComponent(startGameButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(creditsButton)
                 .addContainerGap())
         );
@@ -129,6 +129,7 @@ public class gameStartPage extends javax.swing.JFrame {
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
         // TODO add your handling code here:
+        super.dispose();
         new CreditsPage().setVisible(true);
     }//GEN-LAST:event_creditsButtonActionPerformed
 
