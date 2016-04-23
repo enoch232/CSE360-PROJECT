@@ -10,12 +10,12 @@ package dicegameapp;
  *
  * @author zeyuzhang
  */
-public class gameStartPage extends javax.swing.JFrame {
+public class GameStartPage extends javax.swing.JFrame {
 
     /**
      * Creates new form gameStartPage
      */
-    public gameStartPage() {
+    public GameStartPage() {
         initComponents();
     }
 
@@ -105,8 +105,8 @@ public class gameStartPage extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(startGameButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(creditsButton)
-                .addContainerGap())
+                .addComponent(creditsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,6 +125,8 @@ public class gameStartPage extends javax.swing.JFrame {
 
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
         // TODO add your handling code here:
+        super.dispose();
+        new GameRunPage().setVisible(true);
     }//GEN-LAST:event_startGameButtonActionPerformed
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
