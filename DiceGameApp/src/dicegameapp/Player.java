@@ -62,14 +62,11 @@ public class Player extends Admin{
 	
 	public int rollDice(){
                 int val = dice.randInt(1, 6);
-		System.out.printf("You got %d !!!\n", val);
 		score += val;
-		System.out.printf("Your current score is %d\n", score);
 		
 		if(score > target){
 			isLose = true;
 			isPass = true;
-			System.out.printf("Oh NO!!! Busted!!!\n");
 		}
 		
 		return val;
