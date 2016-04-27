@@ -10,12 +10,16 @@ package dicegameapp;
  * @author zeyuzhang
  */
 public class GameRunPage extends javax.swing.JFrame {
-
+    
+    private Admin admin;
+    private Player[] playerArr;
     /**
      * Creates new form gameRunPage
      */
-    public GameRunPage() {
+    public GameRunPage(Admin newAdmin, Player[] newPlayerArr) {
         initComponents();
+        admin = newAdmin;
+        playerArr = newPlayerArr;
     }
 
     /**
