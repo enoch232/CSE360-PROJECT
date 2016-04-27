@@ -1,3 +1,5 @@
+package dicegameapp;
+
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -14,6 +16,7 @@ public class DiceGame {
     private final int PASS = 4;
     private final int ROLL_DICE = 5;
     private final int QUIT = 6;
+    private int target;
     
     DiceGame(){
         admin = new Admin();
@@ -151,7 +154,10 @@ public class DiceGame {
     	System.out.printf("<Press Enter Continue>\n");
         in.nextLine();
     }
-    
+    public void getTarget(int a){
+        target = a;
+        System.out.printf("Integer is:%d", target);
+    }
     private int getHeightestScore(){
         int heighestScore = -1;
         
@@ -195,24 +201,30 @@ public class DiceGame {
     }
     
     public void runGame(){
-        admin.initTargetScore();
-        playerArr = admin.startNewGame();
-        numOfPlayers = playerArr.length;
+        // admin.initTargetScore();
+        InitPage target = new InitPage();
+        target.setVisible(true);
         
-        boolean isGameOver = false;
         
-        while( !isGameOver ){
-        	newRound();
-        	
-            gradeCurRound();
-        	rankBoard.addNewRecord(generateRecord());
-        	clearScreen();
-            rankBoard.printLatestRecord();
-            enterContinue();
-            
-            isGameOver = checkGameStatus();
-        }
-        clearScreen();
-        System.out.printf("==============Game Over==============\n");
+        
+//        System.out.print(target.getTarget());
+//        playerArr = admin.startNewGame();
+//        numOfPlayers = playerArr.length;
+//        
+//        boolean isGameOver = false;
+//        
+//        while( !isGameOver ){
+//        	newRound();
+//        	
+//            gradeCurRound();
+//        	rankBoard.addNewRecord(generateRecord());
+//        	clearScreen();
+//            rankBoard.printLatestRecord();
+//            enterContinue();
+//            
+//            isGameOver = checkGameStatus();
+//        }
+//        clearScreen();
+//        System.out.printf("==============Game Over==============\n");
     }
 }

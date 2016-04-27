@@ -1,3 +1,6 @@
+package dicegameapp;
+
+import dicegameapp.Dice;
 import java.util.Scanner;
 
 public class Player extends Admin{

@@ -1,7 +1,10 @@
+package dicegameapp;
+
 import java.util.Scanner;
 
 public class Admin {
     protected int target;
+    private int numOfPlayers;
     
     Admin(){
         target = 13;        // Default target score
@@ -51,7 +54,18 @@ public class Admin {
         System.out.printf("Please enter a target <default is 13>: ");
         target = in.nextInt();
         in.nextLine();      // Dump '\n' character
-
+    }
+    
+    public void setTarget(int newTarget){
+        target = newTarget;
+    }
+    
+    public void setNumOfPlayers(int val){
+        numOfPlayers = val;
+    }
+    
+    public int getNumOfPlayers(){
+        return numOfPlayers;
     }
     
     public int getTarget(){

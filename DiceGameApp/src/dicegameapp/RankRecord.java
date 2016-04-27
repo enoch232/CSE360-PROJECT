@@ -1,3 +1,4 @@
+package dicegameapp;
 
 public class RankRecord {
     private String winnerName;
