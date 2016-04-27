@@ -12,8 +12,11 @@ package dicegameapp;
  */
 public class GameRunPage extends javax.swing.JFrame {
     
-    private Admin admin;
+    private int numOfPlayers;
     private Player[] playerArr;
+    private Admin admin;
+    private RankBoard rankBoard;
+    private int activePlayer;
     /**
      * Creates new form GameRunPage
      */
@@ -21,6 +24,8 @@ public class GameRunPage extends javax.swing.JFrame {
         initComponents();
         admin = newAdmin;
         playerArr = newPlayerArr;
+        numOfPlayers = admin.getNumOfPlayers();
+        activePlayer = 0;
     }
 
     /**
@@ -75,8 +80,18 @@ public class GameRunPage extends javax.swing.JFrame {
         });
 
         quitButton.setText("Quit");
+        quitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitButtonActionPerformed(evt);
+            }
+        });
 
         rankingButton.setText("Ranking");
+        rankingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rankingButtonActionPerformed(evt);
+            }
+        });
 
         diceRandomLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picSrc/dice_random.png"))); // NOI18N
         diceRandomLabel.setInheritsPopupMenu(false);
@@ -194,7 +209,7 @@ public class GameRunPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rollDiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollDiceButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_rollDiceButtonActionPerformed
 
     private void betButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_betButtonActionPerformed
@@ -204,8 +219,40 @@ public class GameRunPage extends javax.swing.JFrame {
     private void passButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passButtonActionPerformed
-    
 
+    private void rankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rankingButtonActionPerformed
+
+    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quitButtonActionPerformed
+    
+    private void uploadPlayerInfo(Player player){
+        scoreLabel.setText("" + player.getCurScore());
+        usernameLabel.setText(player.getPlayerName());
+        balanceLabel.setText("" + player.getBalance());
+        
+        if(player.isPass())
+            rollDiceButton.setVisible(false);
+    }
+    
+    private void playerAction(int player){
+        uploadPlayerInfo(playerArr[player]);
+    }
+    
+    public void startGame(){
+        this.setVisible(true);
+        
+        diceOneLabel.setVisible(false);
+        diceTwoLabel.setVisible(false);
+        diceThreeLabel.setVisible(false);
+        diceFourLabel.setVisible(false);
+        diceFiveLabel.setVisible(false);
+        diceSixLabel.setVisible(false);
+        
+        playerAction(activePlayer);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel balanceLabel;
     private javax.swing.JButton betButton;

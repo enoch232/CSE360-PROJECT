@@ -21,7 +21,7 @@ public class InitPage extends javax.swing.JFrame {
     public InitPage() {
         initComponents();
         admin = new Admin();
-        cnt = 1;
+        cnt = 0;
     }
 
     /**
@@ -129,30 +129,30 @@ public class InitPage extends javax.swing.JFrame {
         admin.setTarget(target);
         
         playerArr = new Player[numOfPlayers];
-        
-        getPlayerInfo(1);
+        for(int i = 0; i < numOfPlayers; i++)
+        	playerArr[i] = new Player();
+        getPlayerInfo(cnt);
     }//GEN-LAST:event_targetNextButtonActionPerformed
 
     private void playerNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerNextButtonActionPerformed
         // TODO add your handling code here:
-        if(cnt == admin.getNumOfPlayers()){
+        
+        String newName = upperTextField.getText();
+        int newBalance = Integer.parseInt(lowerTextField.getText());
+        int target = admin.getTarget();
+
+        playerArr[cnt].setPlayerName(newName);
+        playerArr[cnt].setBalance(newBalance);
+        playerArr[cnt].setTargetScore(target);
+        
+        if(cnt == admin.getNumOfPlayers() - 1){
             super.dispose();
-            new GameRunPage(admin, playerArr).setVisible(true);
+            new GameRunPage(admin, playerArr).startGame();
         }
-        else{
-            playerArr[cnt] = new Player();
-            
-            String newName = upperTextField.getText();
-            int newBalance = Integer.parseInt(lowerTextField.getText());
-            int target = admin.getTarget();
-            
-            playerArr[cnt].setPlayerName(newName);
-            playerArr[cnt].setBalance(newBalance);
-            playerArr[cnt].setTargetScore(target);
-            
-            cnt++;
-            getPlayerInfo(cnt);
-        }
+        
+        cnt++;
+        getPlayerInfo(cnt);
+        
     }//GEN-LAST:event_playerNextButtonActionPerformed
     
     private void getPlayerInfo(int n){
@@ -162,6 +162,8 @@ public class InitPage extends javax.swing.JFrame {
         
         upperLabel.setText("Username");
         lowerLabel.setText("Balance");
+        
+        n = n + 1;
         
         upperTextField.setText("Player " + n);
         lowerTextField.setText("");
