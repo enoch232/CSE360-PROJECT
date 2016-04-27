@@ -202,10 +202,10 @@ public class GameRunPage extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(usernameLabel))
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(balanceLabel))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(balanceLabel)
+                            .addComponent(jLabel2))
                         .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -278,6 +278,9 @@ public class GameRunPage extends javax.swing.JFrame {
 
     private void nextPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPlayerButtonActionPerformed
         // TODO add your handling code here:
+        initDicePics();
+        activePlayer = (activePlayer + 1) % numOfPlayers;
+        playerAction(activePlayer);
     }//GEN-LAST:event_nextPlayerButtonActionPerformed
     
     private void wait(int miliseconds){
@@ -317,9 +320,7 @@ public class GameRunPage extends javax.swing.JFrame {
             rollDiceButton.setVisible(false);
     }
     
-    public void startGame(){
-        this.setVisible(true);
-        
+    private void initDicePics(){
         diceOneLabel.setVisible(false);
         diceTwoLabel.setVisible(false);
         diceThreeLabel.setVisible(false);
@@ -327,6 +328,13 @@ public class GameRunPage extends javax.swing.JFrame {
         diceFiveLabel.setVisible(false);
         diceSixLabel.setVisible(false);
         diceGifLabel.setVisible(false);
+        diceRandomLabel.setVisible(true);
+    }
+    
+    public void startGame(){
+        this.setVisible(true);
+        
+        initDicePics();
         
         playerAction(activePlayer);
     }
