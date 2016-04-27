@@ -265,7 +265,8 @@ public class GameRunPage extends javax.swing.JFrame {
     }//GEN-LAST:event_betButtonActionPerformed
 
     private void passButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passButtonActionPerformed
-        // TODO add your handling code here:
+        playerArr[activePlayer].pass();
+        enableNextPlayerButton();
     }//GEN-LAST:event_passButtonActionPerformed
 
     private void rankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingButtonActionPerformed
@@ -277,11 +278,14 @@ public class GameRunPage extends javax.swing.JFrame {
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void nextPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPlayerButtonActionPerformed
-        // TODO add your handling code here:
+        preNextPlayer();
+    }//GEN-LAST:event_nextPlayerButtonActionPerformed
+    
+    private void preNextPlayer(){
         initDicePics();
         activePlayer = (activePlayer + 1) % numOfPlayers;
         playerAction(activePlayer);
-    }//GEN-LAST:event_nextPlayerButtonActionPerformed
+    }
     
     private void wait(int miliseconds){
         long expectedtime = System.currentTimeMillis();
