@@ -1,5 +1,7 @@
 package dicegameapp;
 
+import java.util.Vector;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -278,8 +280,65 @@ public class GameRunPage extends javax.swing.JFrame {
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void nextPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPlayerButtonActionPerformed
+        if(activePlayer == numOfPlayers - 1){
+            deletePlayer();
+        }
         preNextPlayer();
     }//GEN-LAST:event_nextPlayerButtonActionPerformed
+    
+    private boolean checkRoundStatus(){
+    	boolean isDone = true;
+    	
+    	for(int i = 0; i < numOfPlayers && isDone; i++){
+    		if(playerArr[i].isPass() == false){
+    			isDone = false;
+    		}
+    	}
+    	
+    	return isDone;
+    }
+    
+    private int getHeightestScore(){
+        int heighestScore = -1;
+        
+        for(int i = 0; i < numOfPlayers; i++){
+            if(playerArr[i].isLose() == false && playerArr[i].getCurScore() > heighestScore){
+                heighestScore = playerArr[i].getCurScore();
+            }
+        }
+        
+        return heighestScore;
+    }
+    
+    private void gradeCurRound(){
+        int heighestScore = getHeightestScore();
+        
+        for(int i = 0; i < numOfPlayers; i++)
+            playerArr[i].grading(heighestScore);
+    }
+    
+    private Vector<RankRecord> generateRecord(){
+    	Vector<RankRecord> recordList = new Vector<RankRecord>();
+        RankRecord record = new RankRecord();
+        int heighestScore = getHeightestScore();
+        
+        if(heighestScore != -1){
+            for(int i = 0; i < numOfPlayers; i++){
+                if(playerArr[i].getCurScore() == heighestScore){
+                    record.setWinnerName(playerArr[i].getPlayerName());
+                    record.setWinnerScore(playerArr[i].getCurScore());
+                    recordList.add(record);
+                    record = new RankRecord();
+                }
+            }
+        }
+        else{
+            record.setTie();
+            recordList.add(record);
+        }
+        
+    	return recordList;
+    }
     
     private void preNextPlayer(){
         initDicePics();
@@ -287,10 +346,24 @@ public class GameRunPage extends javax.swing.JFrame {
         playerAction(activePlayer);
     }
     
-    private void wait(int miliseconds){
-        long expectedtime = System.currentTimeMillis();
-        while(System.currentTimeMillis() - expectedtime < miliseconds)
-            continue;
+    private boolean checkGameStatus(){
+        if(numOfPlayers > 1)
+        	return false;
+        else
+        	return true;
+    }
+    
+    private void deletePlayer(){
+        Player[] tmpArr = new Player[numOfPlayers];
+        int cnt = 0;
+        for(int i = 0; i < numOfPlayers; i++){
+            if(playerArr[i].getBalance() != 0){
+                tmpArr[cnt++] = playerArr[i];
+            }
+        }
+        numOfPlayers = cnt;
+        admin.setNumOfPlayers(numOfPlayers);
+        playerArr = tmpArr;
     }
     
     private void enableNextPlayerButton(){
