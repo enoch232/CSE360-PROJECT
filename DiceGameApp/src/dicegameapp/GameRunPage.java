@@ -27,6 +27,7 @@ public class GameRunPage extends javax.swing.JFrame {
         admin = newAdmin;
         playerArr = newPlayerArr;
         numOfPlayers = admin.getNumOfPlayers();
+        rankBoard = new RankBoard();
         activePlayer = 0;
     }
 
@@ -237,7 +238,7 @@ public class GameRunPage extends javax.swing.JFrame {
 //        diceGifLabel.setVisible(false);
         
         int dicePoints = playerArr[activePlayer].rollDice();
-        System.out.printf("%d\n", dicePoints);
+        
         switch(dicePoints){
             case 1:
                 diceOneLabel.setVisible(true);
@@ -277,11 +278,31 @@ public class GameRunPage extends javax.swing.JFrame {
 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
         // TODO add your handling code here:
+        playerArr[activePlayer].delete();
+        enableNextPlayerButton();
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void nextPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPlayerButtonActionPerformed
         if(activePlayer == numOfPlayers - 1){
             deletePlayer();
+            activePlayer = -1;
+            
+            if( checkRoundStatus() ){
+                gradeCurRound();
+        	rankBoard.addNewRecord(generateRecord());
+                rankBoard.printLatestRecord();
+                
+                if( checkGameStatus() ){
+                    super.dispose();
+                    new GameOverPage().setVisible(true);
+                }
+                else{
+                    for(int i = 0; i < numOfPlayers; i++){
+                        playerArr[i].reset();
+                    }
+                }
+            }
+            
         }
         preNextPlayer();
     }//GEN-LAST:event_nextPlayerButtonActionPerformed
@@ -348,9 +369,9 @@ public class GameRunPage extends javax.swing.JFrame {
     
     private boolean checkGameStatus(){
         if(numOfPlayers > 1)
-        	return false;
+            return false;
         else
-        	return true;
+            return true;
     }
     
     private void deletePlayer(){

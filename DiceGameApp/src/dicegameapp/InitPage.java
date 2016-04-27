@@ -51,6 +51,7 @@ public class InitPage extends javax.swing.JFrame {
 
         upperLabel.setText("Number of Players");
 
+        playerInfoLabel.setFont(new java.awt.Font("Luminari", 0, 13)); // NOI18N
         playerInfoLabel.setText("Player Info");
 
         targetNextButton.setText("Next");
@@ -108,7 +109,7 @@ public class InitPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lowerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lowerLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(playerNextButton)
                     .addComponent(targetNextButton))
@@ -166,7 +167,7 @@ public class InitPage extends javax.swing.JFrame {
         n = n + 1;
         
         upperTextField.setText("Player " + n);
-        lowerTextField.setText("");
+        lowerTextField.setText("100");
         
         String infoText = "Player " + n + " Info";
         playerInfoLabel.setText(infoText);
@@ -174,6 +175,7 @@ public class InitPage extends javax.swing.JFrame {
     
     public void startPage(){
         this.setVisible(true);
+        lowerTextField.setText("13");
         playerInfoLabel.setVisible(false);
         playerNextButton.setVisible(false);
     }
