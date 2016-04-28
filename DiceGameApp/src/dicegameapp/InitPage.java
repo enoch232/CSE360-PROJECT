@@ -130,6 +130,7 @@ public class InitPage extends javax.swing.JFrame {
     	numPlayer = upperTextField.getText();
     	targetPoint = lowerTextField.getText();
     	
+    	//Check if the input is an integer
     	if(numPlayer.matches(reg) && targetPoint.matches(reg))
     	{
     		int numOfPlayers = Integer.parseInt(upperTextField.getText());
