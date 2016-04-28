@@ -274,6 +274,7 @@ public class GameRunPage extends javax.swing.JFrame {
 
     private void rankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingButtonActionPerformed
         // TODO add your handling code here:
+        rankBoard.printRankBoard();
     }//GEN-LAST:event_rankingButtonActionPerformed
 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
