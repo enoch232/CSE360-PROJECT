@@ -5,6 +5,8 @@
  */
 package dicegameapp;
 import java.util.*;
+
+import javax.swing.JOptionPane;
 /**
  *
  * @author zeyuzhang
@@ -130,7 +132,6 @@ public class InitPage extends javax.swing.JFrame {
     	numPlayer = upperTextField.getText();
     	targetPoint = lowerTextField.getText();
     	
-    	//Check if the input is an integer
     	if(numPlayer.matches(reg) && targetPoint.matches(reg))
     	{
     		int numOfPlayers = Integer.parseInt(upperTextField.getText());
@@ -143,7 +144,8 @@ public class InitPage extends javax.swing.JFrame {
     			playerArr[i] = new Player();
     		getPlayerInfo(cnt);
     	}
- 
+    	else
+    		JOptionPane.showMessageDialog(null, "Input must be an integer.");
     		
     }//GEN-LAST:event_targetNextButtonActionPerformed
 
