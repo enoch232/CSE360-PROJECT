@@ -17,6 +17,9 @@ public class InitPage extends javax.swing.JFrame {
     private Admin admin;
     private Player[] playerArr;
     private int cnt;
+    private String numPlayer;
+    private String targetPoint;
+    private String reg = "\\d+";
     
     public InitPage() {
         initComponents();
@@ -124,15 +127,23 @@ public class InitPage extends javax.swing.JFrame {
     }//GEN-LAST:event_upperTextFieldActionPerformed
 
     private void targetNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_targetNextButtonActionPerformed
-        int numOfPlayers = Integer.parseInt(upperTextField.getText());
-        int target = Integer.parseInt(lowerTextField.getText());
-        admin.setNumOfPlayers(numOfPlayers);
-        admin.setTarget(target);
+    	numPlayer = upperTextField.getText();
+    	targetPoint = lowerTextField.getText();
+    	
+    	if(numPlayer.matches(reg) && targetPoint.matches(reg))
+    	{
+    		int numOfPlayers = Integer.parseInt(upperTextField.getText());
+    		int target = Integer.parseInt(lowerTextField.getText());
+    		admin.setNumOfPlayers(numOfPlayers);
+    		admin.setTarget(target);
         
-        playerArr = new Player[numOfPlayers];
-        for(int i = 0; i < numOfPlayers; i++)
-        	playerArr[i] = new Player();
-        getPlayerInfo(cnt);
+    		playerArr = new Player[numOfPlayers];
+    		for(int i = 0; i < numOfPlayers; i++)
+    			playerArr[i] = new Player();
+    		getPlayerInfo(cnt);
+    	}
+ 
+    		
     }//GEN-LAST:event_targetNextButtonActionPerformed
 
     private void playerNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerNextButtonActionPerformed
