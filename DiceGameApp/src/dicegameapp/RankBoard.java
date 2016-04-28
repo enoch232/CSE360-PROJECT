@@ -42,7 +42,7 @@ public class RankBoard {
     }
     
     public void printRankBoard(){
-        new RankBoardPage().setVisible(true);
+        new RankBoardPage(rankBoard).setVisible(true);
 //        if(rankBoard.size() == 0){
 //            System.out.printf("\t\tNo Record!!\n");
 //        }

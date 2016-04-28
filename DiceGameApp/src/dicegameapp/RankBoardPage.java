@@ -5,6 +5,9 @@
  */
 package dicegameapp;
 
+import java.util.ArrayList;
+import java.util.Vector;
+
 /**
  *
  * @author zeyuzhang
@@ -14,8 +17,11 @@ public class RankBoardPage extends javax.swing.JFrame {
     /**
      * Creates new form RankBoardPage
      */
-    public RankBoardPage() {
+    private ArrayList<Vector<RankRecord>> rankBoard;
+    
+    public RankBoardPage(ArrayList<Vector<RankRecord>> newRankBoard) {
         initComponents();
+        rankBoard = newRankBoard;
     }
 
     /**
