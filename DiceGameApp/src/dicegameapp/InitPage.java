@@ -150,24 +150,25 @@ public class InitPage extends javax.swing.JFrame {
     }//GEN-LAST:event_targetNextButtonActionPerformed
 
     private void playerNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerNextButtonActionPerformed
-        // TODO add your handling code here:
-        
-        String newName = upperTextField.getText();
-        int newBalance = Integer.parseInt(lowerTextField.getText());
-        int target = admin.getTarget();
+        if( lowerTextField.getText().matches(reg) )
+    	{
+            String newName = upperTextField.getText();
+            int newBalance = Integer.parseInt(lowerTextField.getText());
+            int target = admin.getTarget();
+            playerArr[cnt].setPlayerName(newName);
+            playerArr[cnt].setBalance(newBalance);
+            playerArr[cnt].setTargetScore(target);
 
-        playerArr[cnt].setPlayerName(newName);
-        playerArr[cnt].setBalance(newBalance);
-        playerArr[cnt].setTargetScore(target);
-        
-        if(cnt == admin.getNumOfPlayers() - 1){
-            super.dispose();
-            new GameRunPage(admin, playerArr).startGame();
-        }
-        
-        cnt++;
-        getPlayerInfo(cnt);
-        
+            if(cnt == admin.getNumOfPlayers() - 1){
+                super.dispose();
+                new GameRunPage(admin, playerArr).startGame();
+            }
+
+            cnt++;
+            getPlayerInfo(cnt);
+    	}
+    	else
+    		JOptionPane.showMessageDialog(null, "Input must be an integer.");
     }//GEN-LAST:event_playerNextButtonActionPerformed
     
     private void getPlayerInfo(int n){

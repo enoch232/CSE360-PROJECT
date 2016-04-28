@@ -378,7 +378,7 @@ public class GameRunPage extends javax.swing.JFrame {
         Player[] tmpArr = new Player[numOfPlayers];
         int cnt = 0;
         for(int i = 0; i < numOfPlayers; i++){
-            if(playerArr[i].getBalance() != 0){
+            if(playerArr[i].getBalance() > 0){
                 tmpArr[cnt++] = playerArr[i];
             }
         }
