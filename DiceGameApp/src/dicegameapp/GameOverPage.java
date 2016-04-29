@@ -34,7 +34,7 @@ public class GameOverPage extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Luminari", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Brush Script MT", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 51));
         jLabel1.setText("Game Over");
 
@@ -44,15 +44,15 @@ public class GameOverPage extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(107, 107, 107)
-                .addComponent(jLabel1)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(120, 120, 120)
                 .addComponent(jLabel1)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
