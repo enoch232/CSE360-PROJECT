@@ -17,13 +17,13 @@ public class Player extends Admin{
 		userName = newName;
 		balance = newBalance;
 		score = 0;
-		if(balance >= 10)
+		isPass = false;
+		isLose = false;
+                
+                if(balance >= 10)
                     bet = 10;
                 else
                     bet = balance;
-		isPass = false;
-		isLose = false;
-		// dice = new Dice();
 	}
 	
 	Player(String newName, int newBalance){
@@ -44,6 +44,10 @@ public class Player extends Admin{
 	
 	public void setBalance(int newBalance){
 		balance = newBalance;
+                if(balance >= 10)
+                    bet = 10;
+                else
+                    bet = balance;
 	}
 	
 	public void setTargetScore(int newTarget){
@@ -85,6 +89,7 @@ public class Player extends Admin{
 		System.out.printf("\t\tUsername: %s\n", userName);
 		System.out.printf("\t\tBalance:  %d\n", balance);
 		System.out.printf("\t\tScore:   %d\n", score);
+                System.out.printf("\t\tBet:   %d\n", bet);
 		System.out.printf("===========================================\n");
 	}
 	
@@ -134,37 +139,6 @@ public class Player extends Admin{
 	
 	public void delete(){
 		balance = 0;
-	}
-	
-	public void changeBet(){
-		Scanner scan = new Scanner(System.in);
-		int addBet = 0;
-		System.out.printf("How do you want to change the total bet?\n");
-		System.out.printf("================================================\n");
-		System.out.printf("1. Add 5\n");
-		System.out.printf("2. Add 10\n");
-		System.out.printf("3. Add 15\n");
-		System.out.printf("4. Double\n");
-		int choice = scan.nextInt();
-		switch(choice){
-			case 1:
-				addBet = 5;
-				break;
-			case 2:
-				addBet = 10;
-				break;
-			case 3:
-				addBet = 15;
-				break;
-			case 4:
-				addBet = bet;
-				break;
-		}
-		if (balance < bet + addBet){
-			System.out.printf("You can't increase the bet to more than your balance!");
-		}else{
-			bet += addBet; //if the player's balance is greater, then continue the proces.
-		}
 	}
         
         public void doubleBet(){

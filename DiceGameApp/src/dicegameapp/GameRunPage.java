@@ -286,14 +286,12 @@ public class GameRunPage extends javax.swing.JFrame {
         if(activePlayer == numOfPlayers - 1){
             deletePlayer();
             activePlayer = -1;
-            System.out.println("Here 1");
+            
             if( checkGameStatus() ){
-                System.out.println("Here 2");
                 super.dispose();
                 new GameOverPage().setVisible(true);
             }
             else if( checkRoundStatus() ){
-                System.out.println("Here 3");
                 gradeCurRound();
         	rankBoard.addNewRecord(generateRecord());
                 rankBoard.printLatestRecord();
@@ -307,7 +305,6 @@ public class GameRunPage extends javax.swing.JFrame {
                 preNextPlayer();
         }
         else{
-            System.out.println("Here 4");
             preNextPlayer();
         }
     }//GEN-LAST:event_nextPlayerButtonActionPerformed
