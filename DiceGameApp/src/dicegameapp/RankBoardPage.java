@@ -10,18 +10,17 @@ import java.util.Vector;
 
 /**
  *
- * @author zeyuzhang
+ * 
  */
 public class RankBoardPage extends javax.swing.JFrame {
 
     /**
      * Creates new form RankBoardPage
      */
-    private ArrayList<Vector<RankRecord>> rankBoard;
-    
-    public RankBoardPage(ArrayList<Vector<RankRecord>> newRankBoard) {
-        initComponents();
-        rankBoard = newRankBoard;
+
+    public RankBoardPage (String str) {
+    	this.output = str;
+    	initComponents();
     }
 
     /**
@@ -45,7 +44,8 @@ public class RankBoardPage extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         textArea.setViewportView(jTextArea1);
         jTextArea1.setEditable(false);
-        jTextArea1.setText(s);
+        //jTextArea1.setText(s);
+        jTextArea1.setText(this.output);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -94,48 +94,16 @@ public class RankBoardPage extends javax.swing.JFrame {
         super.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
     
-    public String printRankBoard(){
-    	String result = "";
-    	
-    	if(rankBoard.size() == 0){
-            result += "\t\tNo Record!!\n";
-        }
        
-        else{
-            result += "===========================================================\n";
-            result += "\n\t\tRanking Board\n\n";
-            result += "===========================================================\n";
-            
-            for(int i = 0; i < rankBoard.size(); i++){
-                result += "\t\tRound %d\n" + (i + 1);
-                
-                Vector<RankRecord> record = rankBoard.get(i);
-                
-                for(int j = 0; j < record.size(); j++){
-                	if( record.get(j).isTie() ){
-                		result += "\t\tTied!!! NO WINNER :(\n";
-                	}
-                	else{
-                		result += "\t\tWinner:\t%s\n" + record.get(j).getWinnerName();
-                		result += "\t\tScore:\t%d\n" + record.get(j).getWinnerScore();
-                	}
-                }
-                
-                result += "-----------------------------------------------------------\n";
-            }
-        }
-        return result;
-    }
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JScrollPane textArea;
-    private String s = "asfdsd\nasdf\nasd\n\n\nas\nasdf\n\n\n\n\nasdf\n\nsdf\nasdf\n\n\n\n\n\nasfdasdf\n\n\n\n\nsafdadfasdf";
-    //private String s = rankBoard.toString();
+    //private String s = "asfdsd\nasdf\nasd\n\n\nas\nasdf\n\n\n\n\nasdf\n\nsdf\nasdf\n\n\n\n\n\nasfdasdf\n\n\n\n\nsafdadfasdf";
+    //public String s = "1";
+    private String output;
 
     // End of variables declaration//GEN-END:variables
 }
