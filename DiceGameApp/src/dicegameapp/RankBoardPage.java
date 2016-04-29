@@ -37,12 +37,15 @@ public class RankBoardPage extends javax.swing.JFrame {
         textArea = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         backButton = new javax.swing.JButton();
+        ;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         textArea.setViewportView(jTextArea1);
+        jTextArea1.setEditable(false);
+        jTextArea1.setText(s);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +93,39 @@ public class RankBoardPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         super.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+    
+    public String printRankBoard(){
+    	String result = "";
+    	
+    	if(rankBoard.size() == 0){
+            result += "\t\tNo Record!!\n";
+        }
+       
+        else{
+            result += "===========================================================\n";
+            result += "\n\t\tRanking Board\n\n";
+            result += "===========================================================\n";
+            
+            for(int i = 0; i < rankBoard.size(); i++){
+                result += "\t\tRound %d\n" + (i + 1);
+                
+                Vector<RankRecord> record = rankBoard.get(i);
+                
+                for(int j = 0; j < record.size(); j++){
+                	if( record.get(j).isTie() ){
+                		result += "\t\tTied!!! NO WINNER :(\n";
+                	}
+                	else{
+                		result += "\t\tWinner:\t%s\n" + record.get(j).getWinnerName();
+                		result += "\t\tScore:\t%d\n" + record.get(j).getWinnerScore();
+                	}
+                }
+                
+                result += "-----------------------------------------------------------\n";
+            }
+        }
+        return result;
+    }
 
     
 
@@ -98,5 +134,8 @@ public class RankBoardPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JScrollPane textArea;
+    private String s = "asfdsd\nasdf\nasd\n\n\nas\nasdf\n\n\n\n\nasdf\n\nsdf\nasdf\n\n\n\n\n\nasfdasdf\n\n\n\n\nsafdadfasdf";
+    //private String s = rankBoard.toString();
+
     // End of variables declaration//GEN-END:variables
 }
