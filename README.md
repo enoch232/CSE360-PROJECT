@@ -17,8 +17,7 @@
 - This program runs off of Java 1.7. 
 - Put all of the class files in the same folder and run the tester class to run the program. This is for running the text version of the game.
 - You can also use command line `javac Tester.java` for compiling and use `java Tester` for running the program.
-- To run the GUI version of the game, take the DiceGameApp folder and run it as a project. We used Netbeans 8.1 to run the project. To open the project in Netbeans, just select open project, and select the DiceGameApp folder. Then just run the project and the game will start.
-- To run the GUI version of the game in eclipse, open the EclipseGame folder in eclipse and run it.
+- To run the GUI version of the game in eclipse, open the src folder, open the dicegameapp folder, in Eclipse and run the DiceGameApp.java as a java application.
 
 ***
 
