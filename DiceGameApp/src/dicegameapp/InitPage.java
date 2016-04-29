@@ -66,6 +66,7 @@ public class InitPage extends javax.swing.JFrame {
         playerInfoLabel.setForeground(new java.awt.Color(255, 255, 255));
         playerInfoLabel.setText("Player Info");
 
+        targetNextButton.setBackground(new java.awt.Color(51, 102, 0));
         targetNextButton.setFont(new java.awt.Font("Luminari", 0, 18)); // NOI18N
         targetNextButton.setForeground(new java.awt.Color(255, 255, 255));
         targetNextButton.setText("Next");
@@ -85,6 +86,7 @@ public class InitPage extends javax.swing.JFrame {
         lowerLabel.setForeground(new java.awt.Color(255, 255, 255));
         lowerLabel.setText("Target Points");
 
+        playerNextButton.setBackground(new java.awt.Color(51, 102, 0));
         playerNextButton.setFont(new java.awt.Font("Luminari", 0, 18)); // NOI18N
         playerNextButton.setForeground(new java.awt.Color(255, 255, 255));
         playerNextButton.setText("Next");
