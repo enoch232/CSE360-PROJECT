@@ -7,7 +7,7 @@ public class Player extends Admin{
 	private String userName;
 	private int balance;
 	private int score; 		// change to curScore
-	private int deal;
+	private int bet;
 	private boolean isPass;
 	private boolean isLose;
 	static private Dice dice = new Dice();
@@ -16,7 +16,7 @@ public class Player extends Admin{
 		userName = newName;
 		balance = newBalance;
 		score = 0;
-		deal = 10;
+		bet = 10;
 		isPass = false;
 		isLose = false;
 		// dice = new Dice();
@@ -54,6 +54,7 @@ public class Player extends Admin{
 		score = 0;
 		isPass = false;
 		isLose = false;
+                bet = 10;
 	}
 	
 	public void pass(){
@@ -115,9 +116,9 @@ public class Player extends Admin{
 	public void grading(int heighestScore){
 		if(heighestScore != -1){
 			if(score == heighestScore)
-				balance += deal;
+				balance += bet;
 			else
-				balance -= deal;
+				balance -= bet;
 		}
 	}
 	
@@ -146,13 +147,17 @@ public class Player extends Admin{
 				addBet = 15;
 				break;
 			case 4:
-				addBet = deal;
+				addBet = bet;
 				break;
 		}
-		if (balance < deal+ addBet){
+		if (balance < bet+ addBet){
 			System.out.printf("You can't increase the bet to more than your balance!");
 		}else{
-			deal += addBet; //if the player's balance is greater, then continue the proces.
+			bet += addBet; //if the player's balance is greater, then continue the proces.
 		}
 	}
+        
+        public void doubleBet(){
+            bet *= 2;
+        }
 }

@@ -40,7 +40,7 @@ public class GameRunPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        betButton = new javax.swing.JButton();
+        doubleButton = new javax.swing.JButton();
         passButton = new javax.swing.JButton();
         rollDiceButton = new javax.swing.JButton();
         quitButton = new javax.swing.JButton();
@@ -63,10 +63,10 @@ public class GameRunPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        betButton.setText("BET");
-        betButton.addActionListener(new java.awt.event.ActionListener() {
+        doubleButton.setText("Double");
+        doubleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                betButtonActionPerformed(evt);
+                doubleButtonActionPerformed(evt);
             }
         });
 
@@ -181,7 +181,7 @@ public class GameRunPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rollDiceButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(betButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(doubleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
@@ -219,7 +219,7 @@ public class GameRunPage extends javax.swing.JFrame {
                             .addComponent(passButton))
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(betButton)
+                            .addComponent(doubleButton)
                             .addComponent(rollDiceButton))
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -263,9 +263,11 @@ public class GameRunPage extends javax.swing.JFrame {
         enableNextPlayerButton();
     }//GEN-LAST:event_rollDiceButtonActionPerformed
 
-    private void betButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_betButtonActionPerformed
+    private void doubleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doubleButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_betButtonActionPerformed
+        playerArr[activePlayer].doubleBet();
+        doubleButton.setVisible(false);
+    }//GEN-LAST:event_doubleButtonActionPerformed
 
     private void passButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passButtonActionPerformed
         playerArr[activePlayer].pass();
@@ -393,7 +395,7 @@ public class GameRunPage extends javax.swing.JFrame {
         passButton.setVisible(false);
         rollDiceButton.setVisible(false);
         rankingButton.setVisible(false);
-        betButton.setVisible(false);
+        doubleButton.setVisible(false);
         nextPlayerButton.setVisible(true);
     }
     
@@ -402,7 +404,7 @@ public class GameRunPage extends javax.swing.JFrame {
         passButton.setVisible(true);
         rollDiceButton.setVisible(true);
         rankingButton.setVisible(true);
-        betButton.setVisible(true);
+        doubleButton.setVisible(true);
         nextPlayerButton.setVisible(false);
     }
     
@@ -439,7 +441,6 @@ public class GameRunPage extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel balanceLabel;
-    private javax.swing.JButton betButton;
     private javax.swing.JLabel diceFiveLabel;
     private javax.swing.JLabel diceFourLabel;
     private javax.swing.JLabel diceGifLabel;
@@ -448,6 +449,7 @@ public class GameRunPage extends javax.swing.JFrame {
     private javax.swing.JLabel diceSixLabel;
     private javax.swing.JLabel diceThreeLabel;
     private javax.swing.JLabel diceTwoLabel;
+    private javax.swing.JButton doubleButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
