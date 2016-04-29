@@ -286,25 +286,30 @@ public class GameRunPage extends javax.swing.JFrame {
         if(activePlayer == numOfPlayers - 1){
             deletePlayer();
             activePlayer = -1;
-            
-            if( checkRoundStatus() ){
+            System.out.println("Here 1");
+            if( checkGameStatus() ){
+                System.out.println("Here 2");
+                super.dispose();
+                new GameOverPage().setVisible(true);
+            }
+            else if( checkRoundStatus() ){
+                System.out.println("Here 3");
                 gradeCurRound();
         	rankBoard.addNewRecord(generateRecord());
                 rankBoard.printLatestRecord();
                 
-                if( checkGameStatus() ){
-                    super.dispose();
-                    new GameOverPage().setVisible(true);
+                for(int i = 0; i < numOfPlayers; i++){
+                    playerArr[i].reset();
                 }
-                else{
-                    for(int i = 0; i < numOfPlayers; i++){
-                        playerArr[i].reset();
-                    }
-                }
+                preNextPlayer();
             }
-            
+            else
+                preNextPlayer();
         }
-        preNextPlayer();
+        else{
+            System.out.println("Here 4");
+            preNextPlayer();
+        }
     }//GEN-LAST:event_nextPlayerButtonActionPerformed
     
     private boolean checkRoundStatus(){
@@ -368,7 +373,7 @@ public class GameRunPage extends javax.swing.JFrame {
     }
     
     private boolean checkGameStatus(){
-        if(numOfPlayers > 1)
+        if(numOfPlayers > 0)
             return false;
         else
             return true;

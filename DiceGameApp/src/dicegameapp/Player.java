@@ -17,7 +17,10 @@ public class Player extends Admin{
 		userName = newName;
 		balance = newBalance;
 		score = 0;
-		bet = 10;
+		if(balance >= 10)
+                    bet = 10;
+                else
+                    bet = balance;
 		isPass = false;
 		isLose = false;
 		// dice = new Dice();
@@ -55,6 +58,10 @@ public class Player extends Admin{
 		score = 0;
 		isPass = false;
 		isLose = false;
+                if(balance >= 10)
+                    bet = 10;
+                else
+                    bet = balance;
 	}
 	
 	public void pass(){
@@ -115,8 +122,11 @@ public class Player extends Admin{
 	
 	public void grading(int heighestScore){
 		if(heighestScore != -1){
-			if(score == heighestScore)
-				balance += bet;
+			if(score == heighestScore){
+                            balance += bet;
+                            System.out.printf("Bet = %d\n", bet);
+                        }
+				
 			else
 				balance -= bet;
 		}
