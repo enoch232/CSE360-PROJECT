@@ -7,17 +7,18 @@
 ## Group Members
 
 - Joshua Hsu (*jahsu*)
-- Enoch Ko (*Enoch Ko*)
+- Enoch Ko (*enoch232*)
 - Richard Quach (*RichardQuach*)
-- Yanyao Wang (*yanyaowang*)
+- Yanyao Wang (*yanyaowang/WBobby*)		
 - Zeyu Zhang (*TooSchoolForCool*)
 
 ***
 ## Build Instructions
 - This program runs off of Java 1.7. 
 - Put all of the class files in the same folder and run the tester class to run the program. This is for running the text version of the game.
-- You can also use command line `javac Tester.java` for compiling and use `java Tester` for running the program
-- To run the GUI version of the game, take the DiceGameApp folder and run it as a project. We used Netbeans to run the project. To open the project in Netbeans, just select open project, and select the DiceGameApp folder. Then just run the project.
+- You can also use command line `javac Tester.java` for compiling and use `java Tester` for running the program.
+- To run the GUI version of the game, take the DiceGameApp folder and run it as a project. We used Netbeans 8.1 to run the project. To open the project in Netbeans, just select open project, and select the DiceGameApp folder. Then just run the project and the game will start.
+- To run the GUI version of the game in eclipse, open the EclipseGame folder in eclipse and run it.
 
 ***
 
@@ -32,7 +33,7 @@
 - Next, the admin will be prompted to enter the number of players.
 - Each player will then be prompted to enter their name and their balance.
 - Then each player will take their turn. During their turn, they can check the ranking board, check current score, check current balance, pass their turn, roll the dice, bet an amount, or quit.
-- At the start of each round, each player will be prompted to bet an amount. Afterwards, the turns will begin.
+- At the start of each round, each player will have the option to double their bet. Otherwise, they will automatically bet a balance of 10. If a player does not have a balance of 10 to bet, then they will automatically bet all of their current balance.
 - If a player selects roll, they will roll a dice. The value of their roll will be added to their score. The goal of this game is to have the player's score be closest or equal to the target score without exceeding it. If a player exceeds the target score, they lose that round.
 - A player can pass their turn. If they pass their turn, the turn will go to the next player. If every player passes their turn consecutively, the round will end.
 - When a round ends, the winner will be decided. The winner will be the player whose score is closest or equal to the target score.
