@@ -1,3 +1,4 @@
+
 package dicegameapp;
 
 import java.util.Vector;
@@ -458,3 +459,4 @@ public class GameRunPage extends javax.swing.JFrame {
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }
+
