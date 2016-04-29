@@ -149,4 +149,8 @@ public class Player extends Admin{
                 bet *= 2;
             }
         }
+        
+        public int getBet(){
+            return bet;
+        }
 }
