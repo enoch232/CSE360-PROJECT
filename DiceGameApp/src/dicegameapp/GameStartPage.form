@@ -43,13 +43,20 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="startPageDicePic" max="32767" attributes="0"/>
-                      <Component id="diceGameLabel" max="32767" attributes="0"/>
-                      <Component id="startGameButton" max="32767" attributes="0"/>
-                      <Component id="creditsButton" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="startPageDicePic" max="32767" attributes="0"/>
+                              <Component id="startGameButton" max="32767" attributes="0"/>
+                              <Component id="creditsButton" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                          <Component id="diceGameLabel" min="-2" pref="220" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="138" max="32767" attributes="0"/>
               </Group>
@@ -87,7 +94,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="      DiceGame"/>
+            <Property name="text" type="java.lang.String" value="      Dice Game"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="startGameButton">

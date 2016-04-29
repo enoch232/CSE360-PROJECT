@@ -4,7 +4,7 @@
 
 ***
 
-## Group Member
+## Group Members
 
 - Joshua Hsu (*jahsu*)
 - Enoch Ko (*Enoch Ko*)
@@ -15,8 +15,9 @@
 ***
 ## Build Instructions
 - This program runs off of Java 1.7. 
-- Put all of the class files in the same folder and run the tester class to run the program.
+- Put all of the class files in the same folder and run the tester class to run the program. This is for running the text version of the game.
 - You can also use command line `javac Tester.java` for compiling and use `java Tester` for running the program
+- To run the GUI version of the game, take the DiceGameApp folder and run it as a project. We used Netbeans to run the project. To open the project in Netbeans, just select open project, and select the DiceGameApp folder. Then just run the project.
 
 ***
 

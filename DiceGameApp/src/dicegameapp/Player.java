@@ -2,6 +2,7 @@ package dicegameapp;
 
 import dicegameapp.Dice;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Player extends Admin{
 	private String userName;
@@ -54,7 +55,6 @@ public class Player extends Admin{
 		score = 0;
 		isPass = false;
 		isLose = false;
-                bet = 10;
 	}
 	
 	public void pass(){
@@ -150,7 +150,7 @@ public class Player extends Admin{
 				addBet = bet;
 				break;
 		}
-		if (balance < bet+ addBet){
+		if (balance < bet + addBet){
 			System.out.printf("You can't increase the bet to more than your balance!");
 		}else{
 			bet += addBet; //if the player's balance is greater, then continue the proces.
@@ -158,6 +158,11 @@ public class Player extends Admin{
 	}
         
         public void doubleBet(){
-            bet *= 2;
+            if(bet * 2 > balance){
+    		JOptionPane.showMessageDialog(null, "Not Enough To Bet");
+            }
+            else{
+                bet *= 2;
+            }
         }
 }

@@ -28,7 +28,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="diceGifLabel" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="diceFourLabel" min="-2" pref="220" max="-2" attributes="0"/>
                           <Component id="diceFiveLabel" min="-2" pref="210" max="-2" attributes="0"/>
@@ -45,38 +45,33 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="56" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="balanceLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
-                      <Component id="scoreLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="usernameLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="133" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="passButton" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rankingButton" min="-2" pref="100" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="scoreLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="usernameLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="balanceLabel" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="136" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="quitButton" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nextPlayerButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="nextPlayerButton" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="rollDiceButton" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="rollDiceButton" max="32767" attributes="0"/>
+                          <Component id="passButton" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="doubleButton" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="rankingButton" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="doubleButton" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
@@ -103,9 +98,9 @@
               <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="usernameLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="usernameLabel" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -113,9 +108,9 @@
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="scoreLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="scoreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -233,12 +228,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="balance:"/>
+        <Property name="text" type="java.lang.String" value="Balance:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="score:"/>
+        <Property name="text" type="java.lang.String" value="Score:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="usernameLabel">
@@ -258,7 +253,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="username:"/>
+        <Property name="text" type="java.lang.String" value="Player:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="diceGifLabel">
