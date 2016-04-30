@@ -344,9 +344,6 @@ public class GameRunPage extends javax.swing.JFrame {
 
     private void rollDiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollDiceButtonActionPerformed
         diceRandomLabel.setVisible(false);
-//        diceGifLabel.setVisible(true);
-//        wait(800);
-//        diceGifLabel.setVisible(false);
         
         int dicePoints = playerArr[activePlayer].rollDice();
         
@@ -374,7 +371,7 @@ public class GameRunPage extends javax.swing.JFrame {
         if( playerArr[activePlayer].isLose() ){
             roundLabel.setText("Busted !!!");
         }
-        rankBoardPage.setVisible(false);
+        rankBoardPage.dispose();
         enableNextPlayerButton();
     }//GEN-LAST:event_rollDiceButtonActionPerformed
 
@@ -382,13 +379,13 @@ public class GameRunPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         playerArr[activePlayer].doubleBet();
         doubleButton.setVisible(false);
-        rankBoardPage.setVisible(false);
+        rankBoardPage.dispose();
         uploadPlayerInfo(playerArr[activePlayer]);
     }//GEN-LAST:event_doubleButtonActionPerformed
 
     private void passButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passButtonActionPerformed
         playerArr[activePlayer].pass();
-        rankBoardPage.setVisible(false);
+        rankBoardPage.dispose();
         enableNextPlayerButton();
     }//GEN-LAST:event_passButtonActionPerformed
 
@@ -401,7 +398,7 @@ public class GameRunPage extends javax.swing.JFrame {
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
         // TODO add your handling code here:
         playerArr[activePlayer].delete();
-        rankBoardPage.setVisible(false);
+        rankBoardPage.dispose();
         enableNextPlayerButton();
     }//GEN-LAST:event_quitButtonActionPerformed
 
@@ -413,6 +410,7 @@ public class GameRunPage extends javax.swing.JFrame {
             if( checkGameStatus() ){
                 super.dispose();
                 new GameOverPage().setVisible(true);
+                rankBoardPage.dispose();
             }
             else if( checkRoundStatus() ){
                 gradeCurRound();
