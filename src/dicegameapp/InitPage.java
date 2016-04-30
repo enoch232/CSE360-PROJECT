@@ -174,20 +174,26 @@ public class InitPage extends javax.swing.JFrame {
             String newName = upperTextField.getText();
             int newBalance = Integer.parseInt(lowerTextField.getText());
             int target = admin.getTarget();
-            playerArr[cnt].setPlayerName(newName);
-            playerArr[cnt].setBalance(newBalance);
-            playerArr[cnt].setTargetScore(target);
-
-            if(cnt == admin.getNumOfPlayers() - 1){
-                super.dispose();
-                new GameRunPage(admin, playerArr).startGame();
+            
+            if(newBalance == 0){
+            	JOptionPane.showMessageDialog(null, "Balance cannot be zero");
             }
+            else{
+            	playerArr[cnt].setPlayerName(newName);
+                playerArr[cnt].setBalance(newBalance);
+                playerArr[cnt].setTargetScore(target);
 
-            cnt++;
-            getPlayerInfo(cnt);
+                if(cnt == admin.getNumOfPlayers() - 1){
+                    super.dispose();
+                    new GameRunPage(admin, playerArr).startGame();
+                }
+
+                cnt++;
+                getPlayerInfo(cnt);
+            }
         }
         else
-        JOptionPane.showMessageDialog(null, "Input must be an integer.");
+        	JOptionPane.showMessageDialog(null, "Input must be an integer.");
     }//GEN-LAST:event_playerNextButtonActionPerformed
 
     private void targetNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_targetNextButtonActionPerformed
@@ -198,16 +204,21 @@ public class InitPage extends javax.swing.JFrame {
         {
             int numOfPlayers = Integer.parseInt(upperTextField.getText());
             int target = Integer.parseInt(lowerTextField.getText());
-            admin.setNumOfPlayers(numOfPlayers);
-            admin.setTarget(target);
+            if(numOfPlayers == 0 || target == 0){
+            	JOptionPane.showMessageDialog(null, "Cannot be zero");
+            }
+            else{
+            	admin.setNumOfPlayers(numOfPlayers);
+                admin.setTarget(target);
 
-            playerArr = new Player[numOfPlayers];
-            for(int i = 0; i < numOfPlayers; i++)
-            playerArr[i] = new Player();
-            getPlayerInfo(cnt);
+                playerArr = new Player[numOfPlayers];
+                for(int i = 0; i < numOfPlayers; i++)
+                playerArr[i] = new Player();
+                getPlayerInfo(cnt);
+            }
         }
         else
-        JOptionPane.showMessageDialog(null, "Input must be an integer.");
+        	JOptionPane.showMessageDialog(null, "Input must be an integer.");
 
     }//GEN-LAST:event_targetNextButtonActionPerformed
 
