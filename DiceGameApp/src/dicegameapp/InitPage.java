@@ -72,6 +72,9 @@ public class InitPage extends javax.swing.JFrame {
         targetNextButton.setText("Next");
         targetNextButton.setBorder(null);
         targetNextButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                targetNextButtonMouseExited(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 targetNextButtonMouseEntered(evt);
             }
@@ -92,6 +95,9 @@ public class InitPage extends javax.swing.JFrame {
         playerNextButton.setText("Next");
         playerNextButton.setBorder(null);
         playerNextButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                playerNextButtonMouseExited(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 playerNextButtonMouseEntered(evt);
             }
@@ -218,6 +224,16 @@ public class InitPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         targetNextButton.setForeground(new java.awt.Color(255, 255, 153));
     }//GEN-LAST:event_targetNextButtonMouseEntered
+
+    private void playerNextButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playerNextButtonMouseExited
+        // TODO add your handling code here:
+        playerNextButton.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_playerNextButtonMouseExited
+
+    private void targetNextButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_targetNextButtonMouseExited
+        // TODO add your handling code here:
+        targetNextButton.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_targetNextButtonMouseExited
     
     private void getPlayerInfo(int n){
         targetNextButton.setVisible(false);

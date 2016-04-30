@@ -15,36 +15,33 @@ public class RankBoard {
         rankBoard.add(newRecord);
     }
     
-    public void printLatestRecord(){
+    public String plr(){
+        String result = "";
+        
         if(rankBoard.size() == 0){
-            System.out.printf("\t\tNo Record!!\n");
+            result += "\t\tNo Record!!\n";
         }
         else{
-            System.out.printf("===========================================================\n");
-            System.out.printf("\n\t\tRanking Board\n\n");
-            System.out.printf("===========================================================\n");
+            result += "=========================================================================\n";
+            result += "\n\t\tRanking Board\n\n";
+            result += "=========================================================================\n";
             
             Vector<RankRecord> record = rankBoard.get(rankBoard.size() - 1);
             
-            System.out.printf("\t\tRound %d\n", rankBoard.size());
+            result += "\t\tRound " + rankBoard.size() + "\n";
             for(int i = 0; i < record.size(); i++){
             	if( record.get(i).isTie() ){
-            		System.out.printf("\t\tTied!!! NO WINNER :(\n");
+            		result += "\t\tTied!!! NO WINNER :(\n";
             	}
             	else{
-            		System.out.printf("\t\tWinner:\t%s\n", record.get(i).getWinnerName());
-                    System.out.printf("\t\tScore:\t%d\n", record.get(i).getWinnerScore());
+                    result += "\t\tWinner:\t" + record.get(i).getWinnerName() + "\n";
+                    result += "\t\tScore:\t" + record.get(i).getWinnerScore() + "\n";
             	}
             }
             
-            System.out.printf("-----------------------------------------------------------\n");
+            result += "--------------------------------------------------------------------------------------\n";
         }
-    }
-    
-    public void printRankBoard(){
-    	String str = prb();
-    	RankBoardPage rp = new RankBoardPage(str);
-    	rp.setVisible(true);
+        return result;
     }
     
     //get output rank record for textArea field
@@ -56,9 +53,9 @@ public class RankBoard {
         }
        
         else{
-            result += "===========================================================\n";
+            result += "=========================================================================\n";
             result += "\n\t\tRanking Board\n\n";
-            result += "===========================================================\n";
+            result += "=========================================================================\n";
             
             for(int i = 0; i < rankBoard.size(); i++){
                 result += "\t\tRound " + (i + 1) + "\n";
@@ -75,7 +72,7 @@ public class RankBoard {
                 	}
                 }
                 
-                result += "------------------------------------------------------------------------------------------------------\n";
+                result += "-------------------------------------------------------------------------------------\n";
             }
         }
         return result;

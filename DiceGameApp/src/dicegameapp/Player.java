@@ -127,11 +127,8 @@ public class Player extends Admin{
 	
 	public void grading(int heighestScore){
 		if(heighestScore != -1){
-			if(score == heighestScore){
+			if(score == heighestScore)
                             balance += bet;
-                            System.out.printf("Bet = %d\n", bet);
-                        }
-				
 			else
 				balance -= bet;
 		}

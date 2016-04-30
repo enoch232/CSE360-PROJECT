@@ -17,10 +17,14 @@ public class RankBoardPage extends javax.swing.JFrame {
     /**
      * Creates new form RankBoardPage
      */
-
-    public RankBoardPage (String str) {
-    	this.output = str;
+    private String output;
+    public RankBoardPage () {
     	initComponents();
+    }
+    
+    public void setText(String str){
+        this.output = str;
+        jTextArea1.setText(this.output);
     }
 
     /**
@@ -36,18 +40,30 @@ public class RankBoardPage extends javax.swing.JFrame {
         textArea = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         backButton = new javax.swing.JButton();
-        ;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jTextArea1.setBackground(new java.awt.Color(0, 0, 0));
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Luminari", 0, 14)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(5);
         textArea.setViewportView(jTextArea1);
-        jTextArea1.setEditable(false);
-        //jTextArea1.setText(s);
-        jTextArea1.setText(this.output);
 
+        backButton.setFont(new java.awt.Font("Luminari", 0, 18)); // NOI18N
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
+        backButton.setBorder(null);
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backButtonMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backButtonMouseEntered(evt);
+            }
+        });
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -58,28 +74,26 @@ public class RankBoardPage extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(446, 446, 446)
                 .addComponent(backButton)
-                .addGap(21, 21, 21))
+                .addGap(28, 28, 28))
+            .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backButton)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,6 +107,16 @@ public class RankBoardPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         super.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void backButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseEntered
+        // TODO add your handling code here:
+        backButton.setForeground(new java.awt.Color(255, 255, 153));
+    }//GEN-LAST:event_backButtonMouseEntered
+
+    private void backButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseExited
+        // TODO add your handling code here:
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_backButtonMouseExited
     
        
 
@@ -101,9 +125,5 @@ public class RankBoardPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JScrollPane textArea;
-    //private String s = "asfdsd\nasdf\nasd\n\n\nas\nasdf\n\n\n\n\nasdf\n\nsdf\nasdf\n\n\n\n\n\nasfdasdf\n\n\n\n\nsafdadfasdf";
-    //public String s = "1";
-    private String output;
-
     // End of variables declaration//GEN-END:variables
 }
