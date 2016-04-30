@@ -1,3 +1,5 @@
+package dicegameapp;
+
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
@@ -12,14 +14,24 @@ public class JUnitPlayerTester {
 	int score = 10;
 
 	@Test
-	public void testPlayer() {
-		Player p1 = new Player();
-		Player p2 = new Player(name);
-		Player p3 = new Player(name, balance);
+	public void testPlayerStringInt() {
+		Player p1 = new Player("Player1", 100);
 		
 		assertNotNull("The Player1 is NULL", p1);
-		assertNotNull("The Player2 is NULL", p2);
-		assertNotNull("The Player3 is NULL", p3);
+	}
+
+	@Test
+	public void testPlayerString() {
+		Player p1 = new Player("Player1");
+		
+		assertNotNull("The Player1 is NULL", p1);
+	}
+
+	@Test
+	public void testPlayer() {
+		Player p1 = new Player();
+		
+		assertNotNull("The Player1 is NULL", p1);
 	}
 
 	@Test
@@ -57,7 +69,6 @@ public class JUnitPlayerTester {
 		p1.reset();
 		assertEquals(p1.getCurScore(), 0);
 		assertEquals(p1.isPass(), false);
-		
 	}
 
 	@Test
@@ -66,6 +77,13 @@ public class JUnitPlayerTester {
 		p1.reset();
 		p1.pass();
 		assertEquals(p1.isPass(), true);
+	}
+
+	@Test
+	public void testRollDice() {
+		Player p3 = new Player(name, balance);
+		int t1 = p3.rollDice();
+		assertEquals(t1 , p3.getCurScore());
 	}
 
 	@Test
@@ -159,4 +177,25 @@ public class JUnitPlayerTester {
 		assertEquals(p3.getCurScore(), 5);
 		assertEquals(p3.getBalance(), 90);
 	}
+
+	@Test
+	public void testDelete() {
+		Player p3 = new Player(name, balance);
+		p3.delete();
+		assertEquals(p3.getBalance(), 0);
+	}
+
+	@Test
+	public void testDoubleBet() {
+		Player p3 = new Player(name, balance);
+		p3.doubleBet();
+		assertEquals(p3.getBet(), 20);
+	}
+
+	@Test
+	public void testGetBet() {
+		Player p3 = new Player(name, balance);
+		assertEquals(p3.getBet(), 10);
+	}
+	
 }

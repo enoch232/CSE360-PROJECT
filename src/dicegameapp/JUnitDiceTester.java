@@ -1,6 +1,8 @@
-import static org.junit.Assert.*;
-import org.junit.Test;
+package dicegameapp;
 
+import static org.junit.Assert.*;
+
+import org.junit.Test;
 
 public class JUnitDiceTester {
 	@Test
